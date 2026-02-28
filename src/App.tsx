@@ -5,23 +5,27 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform, animate } from 'motion/react';
-import { MessageSquare, Heart, X, ChevronLeft, ChevronRight, Maximize2, ArrowLeft, ArrowRight, Package, Plus, MapPin, Layers, LayoutGrid } from 'lucide-react';
+import { MessageSquare, Heart, X, ChevronLeft, ChevronRight, Maximize2, ArrowLeft, ArrowRight, Package, Plus, MapPin, Layers, LayoutGrid, ChevronDown } from 'lucide-react';
 import { CardData, MOCK_CARDS } from './types';
 
 const TABLE_WIDTH = 3000;
 const TABLE_HEIGHT = 3000;
 
+const NEIGHBORHOODS = ['Ottawa', 'Alta Vista', 'Orleans', 'Glebe', 'Nepean', 'Kanata', 'Barrhaven'];
 const CATEGORIES = Array.from(new Set(MOCK_CARDS.map(c => c.category)));
 
 export default function App() {
   const [cards, setCards] = useState<CardData[]>(MOCK_CARDS);
   const [activeView, setActiveView] = useState<'full-pile' | 'my-pile' | 'free-pile'>('full-pile');
-  const [zoomedCardId, setZoomedCardId] = useState<string | null>(null);
+  const [zoomedCardInfo, setZoomedCardInfo] = useState<{ id: string, pile: 'full' | 'free' | 'my' } | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [dragAction, setDragAction] = useState<'keep' | 'discard' | 'message' | null>(null);
-  const [range, setRange] = useState(1);
+  const [range, setRange] = useState(5);
   const [isStacked, setIsStacked] = useState(false);
+  const [isSortedByDistance, setIsSortedByDistance] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedNeighborhood, setSelectedNeighborhood] = useState('Ottawa');
+  const [isNeighborhoodMenuOpen, setIsNeighborhoodMenuOpen] = useState(false);
   
   const tableRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -30,7 +34,7 @@ export default function App() {
   const cameraX = useMotionValue(0);
   const cameraY = useMotionValue(0);
 
-  const zoomedCard = cards.find(c => c.id === zoomedCardId);
+  const zoomedCard = zoomedCardInfo ? cards.find(c => c.id === zoomedCardInfo.id) : null;
 
   const handleAction = (cardId: string, action: 'keep' | 'discard' | 'message') => {
     setCards(prev => prev.map(card => {
@@ -49,7 +53,7 @@ export default function App() {
       }
       return card;
     }));
-    setZoomedCardId(null);
+    setZoomedCardInfo(null);
   };
 
   const panTo = (view: 'full-pile' | 'my-pile' | 'free-pile') => {
@@ -67,8 +71,14 @@ export default function App() {
     animate(cameraY, targetY, { type: 'spring', damping: 20, stiffness: 150 });
   };
 
-  const updateCardPosition = (id: string, x: number, y: number) => {
-    setCards(prev => prev.map(c => c.id === id ? { ...c, x, y } : c));
+  const updateCardPosition = (id: string, x: number, y: number, pile: 'full' | 'free' | 'my') => {
+    setCards(prev => prev.map(c => {
+      if (c.id === id) {
+        if (pile === 'free') return { ...c, freeX: x, freeY: y };
+        return { ...c, x, y };
+      }
+      return c;
+    }));
   };
 
   const bringToFront = (id: string) => {
@@ -84,6 +94,13 @@ export default function App() {
 
   const toggleStack = () => {
     setIsStacked(!isStacked);
+    setIsSortedByDistance(false);
+    setSelectedCategory(null);
+  };
+
+  const toggleDistanceSort = () => {
+    setIsSortedByDistance(!isSortedByDistance);
+    setIsStacked(false);
     setSelectedCategory(null);
   };
 
@@ -91,16 +108,29 @@ export default function App() {
     if (selectedCategory === category) {
       setSelectedCategory(null);
     } else {
+      const isMobile = window.innerWidth < 768;
+      const screenW = window.innerWidth;
+      
       // When selecting a category, we snap the cards to their grid positions in the state
       // so they can be freely moved from those positions.
       const cardsInCat = cards.filter(c => c.category === category && c.status === 'full-pile');
       setCards(prev => prev.map(c => {
         if (c.category === category && c.status === 'full-pile') {
           const index = cardsInCat.findIndex(card => card.id === c.id);
+          const cols = isMobile ? 2 : 3;
+          const cardW = isMobile ? 144 : 208;
+          const spacingX = isMobile ? 160 : 240;
+          const spacingY = isMobile ? 220 : 340;
+          
+          // Center the grid horizontally
+          const gridW = (Math.min(cardsInCat.length, cols) - 1) * spacingX;
+          const startX = (screenW - gridW - cardW) / 2;
+          const startY = isMobile ? 80 : 120;
+
           return {
             ...c,
-            x: 200 + (index % 3) * 300,
-            y: 200 + Math.floor(index / 3) * 400
+            x: startX + (index % cols) * spacingX,
+            y: startY + Math.floor(index / cols) * spacingY
           };
         }
         return c;
@@ -112,11 +142,37 @@ export default function App() {
   const getCardTransform = (card: CardData) => {
     if (card.status !== 'full-pile') return { x: card.x, y: card.y, opacity: 1, scale: 1 };
 
+    const isMobile = window.innerWidth < 768;
+    const screenW = window.innerWidth;
+    const screenH = window.innerHeight;
+
+    if (isSortedByDistance) {
+      const sortedCards = [...cards]
+        .filter(c => c.status === 'full-pile')
+        .sort((a, b) => a.distance - b.distance);
+      const index = sortedCards.findIndex(c => c.id === card.id);
+      
+      const cols = isMobile ? 2 : 4;
+      const cardW = isMobile ? 144 : 208;
+      const spacingX = isMobile ? 160 : 240;
+      const spacingY = isMobile ? 220 : 340;
+
+      // Center horizontally
+      const gridW = (Math.min(sortedCards.length, cols) - 1) * spacingX;
+      const startX = (screenW - gridW - cardW) / 2;
+      const startY = isMobile ? 80 : 120;
+      
+      return {
+        x: startX + (index % cols) * spacingX,
+        y: startY + Math.floor(index / cols) * spacingY,
+        opacity: 1,
+        scale: isMobile ? 0.8 : 1
+      };
+    }
+
     if (isStacked) {
       const catIndex = CATEGORIES.indexOf(card.category);
-      const stackX = 200 + (catIndex % 3) * 400;
-      const stackY = 200 + Math.floor(catIndex / 3) * 500;
-
+      
       if (selectedCategory) {
         if (card.category === selectedCategory) {
           // Use the card's actual position (which was initialized to the grid)
@@ -124,27 +180,45 @@ export default function App() {
             x: card.x,
             y: card.y,
             opacity: 1,
-            scale: 1
+            scale: 1 // Normal size when browsing
           };
         } else {
-          // Push away
+          // Push away and hide
           return {
-            x: stackX + (catIndex < 2 ? -1000 : 1000),
-            y: stackY + 1000,
-            opacity: 0.2,
-            scale: 0.8
+            x: screenW * 1.2,
+            y: screenH * 1.2,
+            opacity: 0,
+            scale: 0.5
           };
         }
       }
 
-      // Stacked view
+      // Overview Stack View - Line up within screen
+      const cols = isMobile ? 2 : 3;
+      const cardW = isMobile ? 144 : 208;
+      const cardH = cardW * 1.5;
+      
+      // Constrain to a safe area within the screen
+      const safePaddingX = isMobile ? 60 : 150;
+      const safePaddingY = isMobile ? 100 : 150;
+      
+      const availableW = screenW - safePaddingX * 2;
+      const availableH = screenH - safePaddingY * 2;
+      
+      const spacingX = availableW / (cols - 1 || 1);
+      const rows = Math.ceil(CATEGORIES.length / cols);
+      const spacingY = availableH / (rows - 1 || 1);
+      
+      const stackX = safePaddingX + (catIndex % cols) * spacingX - (cardW * 0.5);
+      const stackY = safePaddingY + Math.floor(catIndex / cols) * spacingY - (cardH * 0.5);
+
       const cardsInCat = cards.filter(c => c.category === card.category && c.status === 'full-pile');
       const index = cardsInCat.findIndex(c => c.id === card.id);
       return {
-        x: stackX + index * 5,
-        y: stackY + index * 5,
+        x: stackX + index * 4,
+        y: stackY + index * 4,
         opacity: 1,
-        scale: 1 - index * 0.02
+        scale: isMobile ? 0.45 : 0.6 // Slightly smaller to ensure fit
       };
     }
 
@@ -152,9 +226,23 @@ export default function App() {
   };
 
   return (
-    <div className="relative w-screen h-screen bg-[#0a0a0a] overflow-hidden font-sans">
-      {/* Background Grid */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none" 
+    <div className="relative w-screen h-screen bg-[#1a120b] overflow-hidden font-sans touch-none select-none">
+      {/* Woodgrain Background */}
+      <div 
+        className="absolute inset-0 opacity-40 pointer-events-none" 
+        style={{ 
+          backgroundImage: 'url("https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=2000&q=80")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          filter: 'contrast(1.2) brightness(0.8)'
+        }} 
+      />
+      
+      {/* Workspace Border / Table Surface */}
+      <div className="absolute inset-4 md:inset-8 border border-white/5 rounded-[2rem] md:rounded-[3rem] pointer-events-none z-0 bg-black/10 backdrop-blur-[2px]" />
+
+      {/* Background Grid Accent */}
+      <div className="absolute inset-0 opacity-5 pointer-events-none" 
            style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
       {/* Table Container */}
@@ -170,7 +258,7 @@ export default function App() {
       >
         {/* Full Pile Section */}
         <div className="absolute top-0 left-0 w-screen h-screen flex flex-col items-center justify-center pointer-events-none">
-          <h1 className="text-6xl font-display italic opacity-20 select-none">FULL PILE</h1>
+          <h1 className="text-6xl font-display italic opacity-20 select-none uppercase">{selectedNeighborhood} PILE</h1>
           
           {/* Category Titlebars when stacked */}
           <AnimatePresence>
@@ -196,8 +284,8 @@ export default function App() {
                     >
                       <button
                         onClick={() => selectCategory(cat)}
-                        className={`px-4 py-2 rounded-t-lg font-mono text-[10px] uppercase tracking-widest transition-colors shadow-lg border-x border-t border-white/10 ${
-                          isSelected ? 'bg-emerald-500 text-white' : 'bg-[#1a1a1a] text-white/60 hover:text-white hover:bg-[#252525]'
+                        className={`px-4 py-2 rounded-t-lg font-mono text-[10px] uppercase tracking-widest transition-colors shadow-2xl border-x border-t border-white/30 ${
+                          isSelected ? 'bg-emerald-500 text-white' : 'bg-[#2a2a2a] text-white/90 hover:text-white hover:bg-[#333333]'
                         }`}
                       >
                         {cat} ({cards.filter(c => c.category === cat && c.status === 'full-pile').length})
@@ -215,40 +303,31 @@ export default function App() {
           <h1 className="text-6xl font-display italic opacity-20 select-none">FREE PILE</h1>
           
           {/* Distance Filter UI */}
-          <div className="absolute top-12 right-12 flex items-center gap-4 bg-black/40 backdrop-blur-md p-4 rounded-2xl border border-white/10 pointer-events-auto">
+          <div className="absolute top-12 right-12 flex items-center gap-4 bg-black/80 backdrop-blur-xl p-4 rounded-2xl border border-white/40 shadow-2xl pointer-events-auto">
             <div className="flex flex-col">
-              <span className="text-[10px] font-mono text-white/40 uppercase tracking-widest">Radius</span>
+              <span className="text-[10px] font-bold font-mono text-white/60 uppercase tracking-widest">Radius</span>
               <div className="flex items-center gap-2">
-                <MapPin size={14} className="text-emerald-400" />
-                <span className="text-xl font-display italic text-white">{range} km</span>
+                <MapPin size={16} className="text-emerald-400" />
+                <span className="text-2xl font-display italic text-white">{range} km</span>
               </div>
             </div>
             <button 
               onClick={() => setRange(prev => prev + 1)}
-              className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+              className="w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors border border-white/20"
             >
-              <Plus size={20} />
+              <Plus size={24} />
             </button>
           </div>
-        </div>
 
-        {/* My Pile Section */}
-        <div className="absolute top-0 left-[100vw] w-screen h-screen flex flex-col items-center justify-center border-l border-white/10 bg-white/[0.02] pointer-events-none">
-          <h1 className="text-6xl font-display italic opacity-20 select-none">MY PILE</h1>
-        </div>
-
-        {/* Cards */}
-        {cards
-          .filter(c => c.status !== 'not-interested')
-          .filter(c => c.status !== 'free-pile' || c.distance <= range)
-          .map((card) => {
-            const transform = getCardTransform(card);
-            return (
+          {/* Independent Free Pile Cards */}
+          {cards
+            .filter(c => c.isFree && c.status === 'full-pile' && c.distance <= range)
+            .map((card) => (
               <DraggableCard 
-                key={card.id} 
-                card={card} 
-                onZoom={() => setZoomedCardId(card.id)}
-                onPositionChange={(x, y) => updateCardPosition(card.id, x, y)}
+                key={`free-${card.id}`} 
+                card={{ ...card, x: card.freeX || 0, y: card.freeY || 0 }} 
+                onZoom={() => setZoomedCardInfo({ id: card.id, pile: 'free' })}
+                onPositionChange={(x, y) => updateCardPosition(card.id, x, y, 'free')}
                 onDragStart={() => {
                   setIsDragging(true);
                   bringToFront(card.id);
@@ -259,69 +338,191 @@ export default function App() {
                   if (action) handleAction(card.id, action);
                 }}
                 onDragUpdate={(action: 'keep' | 'discard' | 'message' | null) => setDragAction(action)}
-                viewOffset={card.status === 'my-pile' ? window.innerWidth : 0}
-                verticalOffset={card.status === 'free-pile' ? -window.innerHeight : 0}
-                isStacked={isStacked && card.status === 'full-pile'}
+                viewOffset={0}
+                verticalOffset={-window.innerHeight}
+                isStacked={false}
+                selectedCategory={null}
+                stackTransform={{ x: card.freeX || 0, y: card.freeY || 0, opacity: 1, scale: 1 }}
+                currentAction={dragAction}
+                pileType="free"
+              />
+            ))}
+        </div>
+
+        {/* My Pile Section */}
+        <div className="absolute top-0 left-[100vw] w-screen h-screen flex flex-col items-center justify-center border-l border-white/10 bg-white/[0.02] pointer-events-none">
+          <h1 className="text-6xl font-display italic opacity-20 select-none">MY PILE</h1>
+          
+          {/* My Pile Cards */}
+          {cards
+            .filter(c => c.status === 'my-pile')
+            .map((card) => (
+              <DraggableCard 
+                key={`my-${card.id}`} 
+                card={card} 
+                onZoom={() => setZoomedCardInfo({ id: card.id, pile: 'my' })}
+                onPositionChange={(x, y) => updateCardPosition(card.id, x, y, 'my')}
+                onDragStart={() => {
+                  setIsDragging(true);
+                  bringToFront(card.id);
+                }}
+                onDragEnd={(action: 'keep' | 'discard' | 'message' | null) => {
+                  setIsDragging(false);
+                  setDragAction(null);
+                  if (action) handleAction(card.id, action);
+                }}
+                onDragUpdate={(action: 'keep' | 'discard' | 'message' | null) => setDragAction(action)}
+                viewOffset={window.innerWidth}
+                verticalOffset={0}
+                isStacked={false}
+                selectedCategory={null}
+                stackTransform={{ x: card.x, y: card.y, opacity: 1, scale: 1 }}
+                currentAction={dragAction}
+                pileType="my"
+              />
+            ))}
+        </div>
+
+        {/* Ottawa Pile Cards */}
+        {cards
+          .filter(c => c.status === 'full-pile')
+          .map((card) => {
+            const transform = getCardTransform(card);
+            return (
+              <DraggableCard 
+                key={`full-${card.id}`} 
+                card={card} 
+                onZoom={() => setZoomedCardInfo({ id: card.id, pile: 'full' })}
+                onPositionChange={(x, y) => updateCardPosition(card.id, x, y, 'full')}
+                onDragStart={() => {
+                  setIsDragging(true);
+                  bringToFront(card.id);
+                }}
+                onDragEnd={(action: 'keep' | 'discard' | 'message' | null) => {
+                  setIsDragging(false);
+                  setDragAction(null);
+                  if (action) handleAction(card.id, action);
+                }}
+                onDragUpdate={(action: 'keep' | 'discard' | 'message' | null) => setDragAction(action)}
+                viewOffset={0}
+                verticalOffset={0}
+                isStacked={isStacked}
                 selectedCategory={selectedCategory}
                 stackTransform={transform}
                 currentAction={dragAction}
+                pileType="full"
               />
             );
           })}
       </motion.div>
 
       {/* Navigation Controls */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-4 z-40">
-        <button 
-          onClick={toggleStack}
-          className={`px-6 py-3 rounded-full border transition-all flex items-center gap-2 ${
-            isStacked 
-            ? 'bg-emerald-500 text-white border-emerald-500' 
-            : 'bg-black/50 text-white border-white/20 hover:border-white/50'
-          }`}
-        >
-          {isStacked ? <LayoutGrid size={18} /> : <Layers size={18} />}
-          {isStacked ? 'Unstack' : 'Stack by Category'}
-        </button>
-        <div className="w-px h-12 bg-white/10 mx-2" />
+      <div className="absolute bottom-8 left-4 right-4 md:left-1/2 md:-translate-x-1/2 flex flex-wrap justify-center gap-2 md:gap-4 z-40">
+        <div className="flex bg-black/90 backdrop-blur-xl rounded-full border border-white/40 p-1.5 shadow-2xl">
+          <button 
+            onClick={toggleStack}
+            className={`px-5 py-2.5 rounded-full transition-all flex items-center gap-2 text-xs md:text-sm font-bold ${
+              isStacked 
+              ? 'bg-emerald-500 text-white shadow-lg' 
+              : 'text-white/90 hover:text-white'
+            }`}
+          >
+            <Layers size={16} />
+            Category
+          </button>
+          <button 
+            onClick={toggleDistanceSort}
+            className={`px-5 py-2.5 rounded-full transition-all flex items-center gap-2 text-xs md:text-sm font-bold ${
+              isSortedByDistance 
+              ? 'bg-emerald-500 text-white shadow-lg' 
+              : 'text-white/90 hover:text-white'
+            }`}
+          >
+            <MapPin size={16} />
+            Distance
+          </button>
+        </div>
+
+        <div className="hidden md:block w-px h-12 bg-white/30 mx-1" />
+
         <button 
           onClick={() => panTo('free-pile')}
-          className={`px-6 py-3 rounded-full border transition-all flex items-center gap-2 ${
+          className={`px-5 md:px-8 py-2.5 md:py-4 rounded-full border transition-all flex items-center gap-2 text-xs md:text-base font-bold shadow-2xl ${
             activeView === 'free-pile' 
             ? 'bg-white text-black border-white' 
-            : 'bg-black/50 text-white border-white/20 hover:border-white/50'
+            : 'bg-black/90 text-white border-white/40 hover:border-white/60'
           }`}
         >
           <Package size={18} />
-          Free Pile
+          Free
         </button>
         <button 
           onClick={() => panTo('full-pile')}
-          className={`px-6 py-3 rounded-full border transition-all flex items-center gap-2 ${
+          className={`px-5 md:px-8 py-2.5 md:py-4 rounded-full border transition-all flex items-center gap-2 text-xs md:text-base font-bold shadow-2xl ${
             activeView === 'full-pile' 
             ? 'bg-white text-black border-white' 
-            : 'bg-black/50 text-white border-white/20 hover:border-white/50'
+            : 'bg-black/90 text-white border-white/40 hover:border-white/60'
           }`}
         >
           <Maximize2 size={18} />
-          Full Pile
+          {selectedNeighborhood} - {range}km
         </button>
+
+        <div className="relative">
+          <button 
+            onClick={() => setIsNeighborhoodMenuOpen(!isNeighborhoodMenuOpen)}
+            className="px-5 md:px-8 py-2.5 md:py-4 rounded-full border bg-black/90 text-white border-white/40 hover:border-white/60 transition-all flex items-center gap-2 text-xs md:text-base font-bold shadow-2xl"
+          >
+            <MapPin size={18} />
+            Change Area
+            <ChevronDown size={16} className={`transition-transform ${isNeighborhoodMenuOpen ? 'rotate-180' : ''}`} />
+          </button>
+
+          <AnimatePresence>
+            {isNeighborhoodMenuOpen && (
+              <motion.div 
+                initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                className="absolute bottom-full mb-4 left-0 md:left-auto md:right-0 bg-[#111111] border border-white/40 rounded-2xl shadow-2xl p-2 min-w-[180px] grid grid-cols-1 gap-1 z-50"
+              >
+                {NEIGHBORHOODS.map(n => (
+                  <button
+                    key={n}
+                    onClick={() => {
+                      setSelectedNeighborhood(n);
+                      setIsNeighborhoodMenuOpen(false);
+                      panTo('full-pile');
+                    }}
+                    className={`px-4 py-3 rounded-xl text-left text-xs md:text-sm font-bold transition-colors ${
+                      selectedNeighborhood === n 
+                      ? 'bg-emerald-500 text-white' 
+                      : 'text-white/80 hover:bg-white/10 hover:text-white'
+                    }`}
+                  >
+                    {n}
+                  </button>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
         <button 
           onClick={() => panTo('my-pile')}
-          className={`px-6 py-3 rounded-full border transition-all flex items-center gap-2 relative ${
+          className={`relative px-5 md:px-8 py-2.5 md:py-4 rounded-full border transition-all flex items-center gap-2 relative text-xs md:text-base font-bold shadow-2xl ${
             activeView === 'my-pile' 
             ? 'bg-white text-black border-white' 
-            : 'bg-black/50 text-white border-white/20 hover:border-white/50'
+            : 'bg-black/90 text-white border-white/40 hover:border-white/60'
           }`}
         >
           <Heart size={18} className={activeView === 'my-pile' ? 'fill-black' : ''} />
-          My Pile
+          Mine
           {cards.filter(c => c.status === 'my-pile').length > 0 && (
             <motion.span 
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               key={cards.filter(c => c.status === 'my-pile').length}
-              className="absolute -top-2 -right-2 w-6 h-6 bg-emerald-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center shadow-lg"
+              className="absolute -top-1.5 -right-1.5 w-6 h-6 bg-emerald-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center shadow-2xl border border-white/20"
             >
               {cards.filter(c => c.status === 'my-pile').length}
             </motion.span>
@@ -342,11 +543,11 @@ export default function App() {
                 dragAction === 'message' ? 'bg-blue-500/10' : 'bg-transparent'
               }`}
             >
-              <div className={`flex flex-col items-center gap-3 transition-all duration-300 ${dragAction === 'message' ? 'scale-110 opacity-100' : 'scale-90 opacity-20'}`}>
-                <div className={`p-4 rounded-full border-2 ${dragAction === 'message' ? 'border-blue-400 bg-blue-400/20' : 'border-white/20 bg-white/5'}`}>
+              <div className={`flex flex-col items-center gap-3 transition-all duration-300 ${dragAction === 'message' ? 'scale-110 opacity-100' : 'scale-90 opacity-70'}`}>
+                <div className={`p-4 rounded-full border-2 ${dragAction === 'message' ? 'border-blue-400 bg-blue-400/20' : 'border-white/40 bg-white/10'}`}>
                   <MessageSquare className={dragAction === 'message' ? 'text-blue-400' : 'text-white'} size={32} />
                 </div>
-                <span className={`font-mono text-[10px] tracking-[0.3em] uppercase ${dragAction === 'message' ? 'text-blue-400' : 'text-white/40'}`}>Message Owner</span>
+                <span className={`font-mono text-[10px] tracking-[0.3em] uppercase font-bold ${dragAction === 'message' ? 'text-blue-400' : 'text-white'}`}>Message Owner</span>
               </div>
             </motion.div>
 
@@ -359,11 +560,11 @@ export default function App() {
                 dragAction === 'discard' ? 'bg-red-500/10' : 'bg-transparent'
               }`}
             >
-              <div className={`flex flex-col items-center gap-3 -rotate-90 transition-all duration-300 ${dragAction === 'discard' ? 'scale-110 opacity-100' : 'scale-90 opacity-20'}`}>
-                <div className={`p-4 rounded-full border-2 ${dragAction === 'discard' ? 'border-red-400 bg-red-400/20' : 'border-white/20 bg-white/5'}`}>
+              <div className={`flex flex-col items-center gap-3 -rotate-90 transition-all duration-300 ${dragAction === 'discard' ? 'scale-110 opacity-100' : 'scale-90 opacity-70'}`}>
+                <div className={`p-4 rounded-full border-2 ${dragAction === 'discard' ? 'border-red-400 bg-red-400/20' : 'border-white/40 bg-white/10'}`}>
                   <X className={dragAction === 'discard' ? 'text-red-400' : 'text-white'} size={32} />
                 </div>
-                <span className={`font-mono text-[10px] tracking-[0.3em] uppercase ${dragAction === 'discard' ? 'text-red-400' : 'text-white/40'}`}>Not Interested</span>
+                <span className={`font-mono text-[10px] tracking-[0.3em] uppercase font-bold ${dragAction === 'discard' ? 'text-red-400' : 'text-white'}`}>Not Interested</span>
               </div>
             </motion.div>
 
@@ -376,11 +577,11 @@ export default function App() {
                 dragAction === 'keep' ? 'bg-emerald-500/10' : 'bg-transparent'
               }`}
             >
-              <div className={`flex flex-col items-center gap-3 rotate-90 transition-all duration-300 ${dragAction === 'keep' ? 'scale-110 opacity-100' : 'scale-90 opacity-20'}`}>
-                <div className={`p-4 rounded-full border-2 ${dragAction === 'keep' ? 'border-emerald-400 bg-emerald-400/20' : 'border-white/20 bg-white/5'}`}>
+              <div className={`flex flex-col items-center gap-3 rotate-90 transition-all duration-300 ${dragAction === 'keep' ? 'scale-110 opacity-100' : 'scale-90 opacity-70'}`}>
+                <div className={`p-4 rounded-full border-2 ${dragAction === 'keep' ? 'border-emerald-400 bg-emerald-400/20' : 'border-white/40 bg-white/10'}`}>
                   <Heart className={dragAction === 'keep' ? 'text-emerald-400' : 'text-white'} size={32} />
                 </div>
-                <span className={`font-mono text-[10px] tracking-[0.3em] uppercase ${dragAction === 'keep' ? 'text-emerald-400' : 'text-white/40'}`}>Keep for My Pile</span>
+                <span className={`font-mono text-[10px] tracking-[0.3em] uppercase font-bold ${dragAction === 'keep' ? 'text-emerald-400' : 'text-white'}`}>Keep for My Pile</span>
               </div>
             </motion.div>
           </>
@@ -389,7 +590,7 @@ export default function App() {
 
       {/* Zoomed View */}
       <AnimatePresence>
-        {zoomedCard && (
+        {zoomedCard && zoomedCardInfo && (
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -397,11 +598,11 @@ export default function App() {
             className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-xl p-8"
           >
             <motion.div 
-              layoutId={`card-${zoomedCard.id}`}
+              layoutId={`card-${zoomedCard.id}-${zoomedCardInfo.pile}`}
               className="relative w-full max-w-4xl bg-[#1a1a1a] rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl border border-white/10"
             >
               <button 
-                onClick={() => setZoomedCardId(null)}
+                onClick={() => setZoomedCardInfo(null)}
                 className="absolute top-6 right-6 p-2 rounded-full bg-black/50 text-white hover:bg-white hover:text-black transition-colors z-10"
               >
                 <X size={24} />
@@ -426,21 +627,30 @@ export default function App() {
 
                 <div className="grid grid-cols-3 gap-4 mt-12">
                   <button 
-                    onClick={() => handleAction(zoomedCard.id, 'discard')}
+                    onClick={() => {
+                      handleAction(zoomedCard.id, 'discard');
+                      setZoomedCardInfo(null);
+                    }}
                     className="flex flex-col items-center gap-2 p-4 rounded-2xl border border-white/10 hover:bg-red-500/10 hover:border-red-500/50 transition-all group"
                   >
                     <X className="text-white/40 group-hover:text-red-400" size={24} />
                     <span className="text-[10px] font-mono uppercase tracking-widest text-white/40 group-hover:text-red-400">Discard</span>
                   </button>
                   <button 
-                    onClick={() => handleAction(zoomedCard.id, 'message')}
+                    onClick={() => {
+                      handleAction(zoomedCard.id, 'message');
+                      setZoomedCardInfo(null);
+                    }}
                     className="flex flex-col items-center gap-2 p-4 rounded-2xl border border-white/10 hover:bg-blue-500/10 hover:border-blue-500/50 transition-all group"
                   >
                     <MessageSquare className="text-white/40 group-hover:text-blue-400" size={24} />
                     <span className="text-[10px] font-mono uppercase tracking-widest text-white/40 group-hover:text-blue-400">Message</span>
                   </button>
                   <button 
-                    onClick={() => handleAction(zoomedCard.id, 'keep')}
+                    onClick={() => {
+                      handleAction(zoomedCard.id, 'keep');
+                      setZoomedCardInfo(null);
+                    }}
                     className="flex flex-col items-center gap-2 p-4 rounded-2xl border border-white/10 hover:bg-emerald-500/10 hover:border-emerald-500/50 transition-all group"
                   >
                     <Heart className="text-white/40 group-hover:text-emerald-400" size={24} />
@@ -469,9 +679,24 @@ interface DraggableCardProps {
   selectedCategory: string | null;
   stackTransform: { x: number, y: number, opacity: number, scale: number };
   currentAction: 'keep' | 'discard' | 'message' | null;
+  pileType: 'full' | 'free' | 'my';
 }
 
-const DraggableCard: React.FC<DraggableCardProps> = ({ card, onZoom, onPositionChange, onDragStart, onDragEnd, onDragUpdate, viewOffset, verticalOffset, isStacked, selectedCategory, stackTransform, currentAction }) => {
+const DraggableCard: React.FC<DraggableCardProps> = ({ 
+  card, 
+  onZoom, 
+  onPositionChange, 
+  onDragStart, 
+  onDragEnd, 
+  onDragUpdate, 
+  viewOffset, 
+  verticalOffset, 
+  isStacked, 
+  selectedCategory, 
+  stackTransform, 
+  currentAction,
+  pileType
+}) => {
   const x = useMotionValue(card.x + viewOffset);
   const y = useMotionValue(card.y + verticalOffset);
   
@@ -484,14 +709,14 @@ const DraggableCard: React.FC<DraggableCardProps> = ({ card, onZoom, onPositionC
     // Don't fight with active dragging
     if (dragActive.current) return;
 
-    if (isStacked) {
+    if (isStacked && pileType === 'full') {
       animate(x, stackTransform.x, { type: 'spring', damping: 25, stiffness: 120 });
       animate(y, stackTransform.y, { type: 'spring', damping: 25, stiffness: 120 });
     } else {
       animate(x, card.x + viewOffset, { type: 'spring', damping: 25, stiffness: 120 });
       animate(y, card.y + verticalOffset, { type: 'spring', damping: 25, stiffness: 120 });
     }
-  }, [card.x, card.y, viewOffset, verticalOffset, isStacked, stackTransform.x, stackTransform.y]);
+  }, [card.x, card.y, viewOffset, verticalOffset, isStacked, stackTransform.x, stackTransform.y, pileType]);
   
   const rotate = useTransform(x, [0, TABLE_WIDTH], [-5, 5]);
   const scale = useMotionValue(1);
@@ -513,7 +738,7 @@ const DraggableCard: React.FC<DraggableCardProps> = ({ card, onZoom, onPositionC
 
   const handleDragEnd = (_: any, info: any) => {
     // Allow dragging if not stacked OR if it's the selected category
-    const canDrag = !isStacked || (card.status === 'full-pile' && card.category === selectedCategory);
+    const canDrag = !isStacked || (pileType === 'full' && card.category === selectedCategory);
     if (!canDrag) return;
     
     const threshold = 120; // Slightly more generous
@@ -539,7 +764,7 @@ const DraggableCard: React.FC<DraggableCardProps> = ({ card, onZoom, onPositionC
       onDragEnd(action);
     } else {
       onDragEnd(null);
-      onPositionChange(x.get() - viewOffset, y.get());
+      onPositionChange(x.get() - viewOffset, y.get() - verticalOffset);
     }
     scale.set(1);
     
@@ -570,12 +795,13 @@ const DraggableCard: React.FC<DraggableCardProps> = ({ card, onZoom, onPositionC
 
   return (
     <motion.div
-      layoutId={`card-${card.id}`}
-      drag={!isStacked || (card.status === 'full-pile' && card.category === selectedCategory)}
+      layoutId={`card-${card.id}-${pileType}`}
+      drag={!isStacked || (pileType === 'full' && card.category === selectedCategory)}
       dragMomentum={false}
+      initial={false}
       animate={{ 
-        opacity: isStacked ? stackTransform.opacity : 1,
-        scale: isStacked ? stackTransform.scale : scale.get() 
+        opacity: isStacked && pileType === 'full' ? stackTransform.opacity : 1,
+        scale: isStacked && pileType === 'full' ? stackTransform.scale : scale.get() 
       }}
       onPointerDown={() => {
         pointerStartTime.current = Date.now();
@@ -596,7 +822,7 @@ const DraggableCard: React.FC<DraggableCardProps> = ({ card, onZoom, onPositionC
         }
       }}
       style={{ x, y, rotate: combinedRotate, scale }}
-      className="absolute w-64 aspect-[2/3] cursor-grab active:cursor-grabbing z-10"
+      className="absolute w-36 md:w-52 aspect-[2/3] cursor-grab active:cursor-grabbing z-10"
     >
       <div className="w-full h-full bg-[#1a1a1a] rounded-2xl overflow-hidden shadow-xl border border-white/10 group">
         <div className="h-2/3 w-full overflow-hidden bg-black/20">
@@ -612,7 +838,7 @@ const DraggableCard: React.FC<DraggableCardProps> = ({ card, onZoom, onPositionC
           <div>
             <div className="flex justify-between items-start">
               <h3 className="text-white font-display italic text-lg leading-tight mb-1">{card.title}</h3>
-              {card.status === 'free-pile' && (
+              {card.isFree && (
                 <span className="text-[8px] bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded font-mono uppercase">Free</span>
               )}
             </div>

@@ -6,9 +6,12 @@ export interface CardData {
   description: string;
   imageUrl: string;
   owner: string;
-  status: 'full-pile' | 'my-pile' | 'not-interested' | 'free-pile';
+  status: 'full-pile' | 'my-pile' | 'not-interested';
+  isFree?: boolean;
   x: number;
   y: number;
+  freeX?: number;
+  freeY?: number;
   distance: number; // in km
   category: string;
 }
@@ -21,6 +24,7 @@ export const MOCK_CARDS: CardData[] = [
     imageUrl: 'https://picsum.photos/seed/camera/300/450?grayscale=1',
     owner: 'Alice',
     status: 'full-pile',
+    isFree: false,
     x: 100,
     y: 100,
     distance: 0.5,
@@ -33,6 +37,7 @@ export const MOCK_CARDS: CardData[] = [
     imageUrl: 'https://picsum.photos/seed/journal/300/450?grayscale=1',
     owner: 'Bob',
     status: 'full-pile',
+    isFree: false,
     x: 300,
     y: 150,
     distance: 1.2,
@@ -45,6 +50,7 @@ export const MOCK_CARDS: CardData[] = [
     imageUrl: 'https://picsum.photos/seed/watch/300/450?grayscale=1',
     owner: 'Charlie',
     status: 'full-pile',
+    isFree: false,
     x: 500,
     y: 100,
     distance: 2.5,
@@ -56,9 +62,12 @@ export const MOCK_CARDS: CardData[] = [
     description: 'Minimalist ceramic pot with a healthy Echeveria succulent.',
     imageUrl: 'https://picsum.photos/seed/plant/300/450?grayscale=1',
     owner: 'Diana',
-    status: 'free-pile',
+    status: 'full-pile',
+    isFree: true,
     x: 150,
     y: 400,
+    freeX: 200,
+    freeY: 200,
     distance: 0.8,
     category: 'Home',
   },
@@ -69,6 +78,7 @@ export const MOCK_CARDS: CardData[] = [
     imageUrl: 'https://picsum.photos/seed/vinyl/300/450?grayscale=1',
     owner: 'Ethan',
     status: 'full-pile',
+    isFree: false,
     x: 400,
     y: 450,
     distance: 3.1,
@@ -80,9 +90,12 @@ export const MOCK_CARDS: CardData[] = [
     description: 'Elegant gold-nibbed pen for a smooth writing experience.',
     imageUrl: 'https://picsum.photos/seed/pen/300/450?grayscale=1',
     owner: 'Fiona',
-    status: 'free-pile',
+    status: 'full-pile',
+    isFree: true,
     x: 650,
     y: 350,
+    freeX: 500,
+    freeY: 150,
     distance: 0.3,
     category: 'Stationery',
   },
@@ -93,6 +106,7 @@ export const MOCK_CARDS: CardData[] = [
     imageUrl: 'https://picsum.photos/seed/coffee/300/450?grayscale=1',
     owner: 'George',
     status: 'full-pile',
+    isFree: false,
     x: 800,
     y: 150,
     distance: 5.0,
@@ -104,9 +118,12 @@ export const MOCK_CARDS: CardData[] = [
     description: 'Durable and stylish backpack for daily commutes or weekend trips.',
     imageUrl: 'https://picsum.photos/seed/bag/300/450?grayscale=1',
     owner: 'Hannah',
-    status: 'free-pile',
+    status: 'full-pile',
+    isFree: true,
     x: 850,
     y: 450,
+    freeX: 350,
+    freeY: 400,
     distance: 1.5,
     category: 'Accessories',
   },
@@ -117,6 +134,7 @@ export const MOCK_CARDS: CardData[] = [
     imageUrl: 'https://picsum.photos/seed/audio/300/450?grayscale=1',
     owner: 'Ian',
     status: 'full-pile',
+    isFree: false,
     x: 200,
     y: 700,
     distance: 0.9,
@@ -128,9 +146,12 @@ export const MOCK_CARDS: CardData[] = [
     description: 'Adjustable LED lamp with warm and cool light settings.',
     imageUrl: 'https://picsum.photos/seed/lamp/300/450?grayscale=1',
     owner: 'Julia',
-    status: 'free-pile',
+    status: 'full-pile',
+    isFree: true,
     x: 550,
     y: 750,
+    freeX: 600,
+    freeY: 500,
     distance: 2.2,
     category: 'Home',
   },
