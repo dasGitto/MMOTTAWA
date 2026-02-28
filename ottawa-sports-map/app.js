@@ -111,7 +111,10 @@ const updateMapMarkers = () => {
         if (isVisible && currentSearch) {
             const matchName = (facility.displayName || '').toLowerCase().includes(currentSearch);
             const matchType = facility.type.replace('_', ' ').toLowerCase().includes(currentSearch);
-            if (!matchName && !matchType) {
+            const matchEquipment = (facility.equipment || '').toLowerCase().includes(currentSearch);
+            const matchOutdoor = facility.isOutdoor && 'outdoor'.includes(currentSearch);
+
+            if (!matchName && !matchType && !matchEquipment && !matchOutdoor) {
                 isVisible = false;
             }
         }
@@ -244,21 +247,26 @@ const fetchLocalGyms = async () => {
             const type = 'gym';
             const displayName = gym.name;
             const isOutdoor = true;
+            const equipment = gym.equipment;
 
-            const marker = L.marker([gym.lat, gym.lon], { icon: createIcon(type) });
-            const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${gym.lat},${gym.lon}`;
+            // The specific JSON uses 'lng' instead of 'lon'
+            const lng = gym.lng || gym.lon;
+
+            const marker = L.marker([gym.lat, lng], { icon: createIcon(type) });
+            const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${gym.lat},${lng}`;
 
             const popupContent = `
                 <div class="popup-info">
                     <h3>${displayName}</h3>
-                    <p style="text-transform: capitalize;"><i class="fa-solid fa-map-pin" style="width: 20px; text-align:center; margin-right:5px; opacity:0.7"></i> Outdoor Gym</p>
+                    <p style="text-transform: capitalize;"><i class="fa-solid fa-map-pin" style="width: 20px; text-align:center; margin-right:5px; opacity:0.7"></i> ${gym.type} Park</p>
+                    ${equipment ? `<p style="margin-top: 5px; font-size: 13px;"><i class="fa-solid fa-dumbbell" style="width: 20px; text-align:center; margin-right:5px; opacity:0.7"></i> <strong>Equipment:</strong> ${equipment}</p>` : ''}
                     <div class="popup-badge">Free 24/7</div>
                     <a href="${directionsUrl}" target="_blank" class="popup-link"><i class="fa-solid fa-location-arrow" style="margin-right: 5px;"></i> Get Directions</a>
                 </div>
             `;
             marker.bindPopup(popupContent, { offset: [0, -10] });
 
-            allFacilities.push({ type, lat: gym.lat, lon: gym.lon, marker, displayName, isOutdoor });
+            allFacilities.push({ type, lat: gym.lat, lon: lng, marker, displayName, isOutdoor, equipment });
         });
         updateMapMarkers();
     } catch (e) { console.error('Error fetching local gyms:', e); }
