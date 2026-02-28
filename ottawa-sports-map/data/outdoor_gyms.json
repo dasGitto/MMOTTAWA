@@ -1,0 +1,44 @@
+[
+    {
+        "name": "Mooney's Bay (Trekfit)",
+        "lat": 45.368,
+        "lon": -75.696,
+        "type": "outdoor_gym",
+        "outdoor": true
+    },
+    {
+        "name": "Richcraft Kanata (Circuit)",
+        "lat": 45.337,
+        "lon": -75.922,
+        "type": "outdoor_gym",
+        "outdoor": true
+    },
+    {
+        "name": "Eureka Park (Calisthenics)",
+        "lat": 45.344,
+        "lon": -75.908,
+        "type": "outdoor_gym",
+        "outdoor": true
+    },
+    {
+        "name": "Optimiste Park (Vanier)",
+        "lat": 45.438,
+        "lon": -75.663,
+        "type": "outdoor_gym",
+        "outdoor": true
+    },
+    {
+        "name": "Stanley Park (New Edinburgh Bars)",
+        "lat": 45.441,
+        "lon": -75.688,
+        "type": "outdoor_gym",
+        "outdoor": true
+    },
+    {
+        "name": "Pineview Park (Gloucester)",
+        "lat": 45.421,
+        "lon": -75.605,
+        "type": "outdoor_gym",
+        "outdoor": true
+    }
+]
