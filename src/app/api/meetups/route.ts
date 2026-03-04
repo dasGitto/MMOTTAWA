@@ -1,26 +1,21 @@
 import { NextResponse } from 'next/server';
-import { fetchOttawaSportsMeetups } from '@/lib/fetchMeetups';
 import { createClient } from '@supabase/supabase-js';
 
-// The Edge Logic: 0 cold starts, runs globally on V8 isolates
-export const runtime = 'edge';
+export const runtime = 'edge'; // Zero cold starts
 
 export async function GET() {
-
-    /**
-     * SUPABASE SECURE EDGE FETCHING (Example Pattern)
-     * Because this runs server-side (Edge), we safely use the SERVICE_ROLE_KEY
-     * to bypass RLS locally (if needed) or fetch sensitive structured data 
-     * without exposing the keys to the client payload.
-     */
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://mock.supabase.co';
-    const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || 'mock_service_key';
+    // These remain hidden from the browser/frontend
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+    const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
     const supabase = createClient(supabaseUrl, supabaseKey);
 
-    // Example: const { data, error } = await supabase.from('meetups').select('*');
+    // Fetching from your "Pantry"
+    const { data: meetups, error } = await supabase
+        .from('meetups')
+        .select('*')
+        .eq('is_live', true);
 
-    // Currently fetching Meetups via GraphQL
-    const meetups = await fetchOttawaSportsMeetups();
+    if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
-    return NextResponse.json(meetups);
+    return NextResponse.json(meetups || []);
 }

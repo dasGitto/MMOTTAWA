@@ -1,9 +1,10 @@
 'use client';
 
-import { useState, useRef, useMemo } from 'react';
+import { useState, useRef, useMemo, useEffect } from 'react';
 import useSWR from 'swr';
-import Map, { Marker, NavigationControl, Source, Layer } from 'react-map-gl/maplibre';
+import Map, { NavigationControl, Source, Layer } from 'react-map-gl/maplibre';
 import 'maplibre-gl/dist/maplibre-gl.css';
+import * as turf from '@turf/turf';
 import hubsData from '../data/hubs.json';
 import Sidebar from './Sidebar';
 import RACentreModal from './RACentreModal';
@@ -13,13 +14,51 @@ export default function OttawaMap() {
     const mapRef = useRef<any>(null);
     const [activeHub, setActiveHub] = useState<any | null>(null);
     const [filterCategory, setFilterCategory] = useState<string>('All');
+    const [onsGeojson, setOnsGeojson] = useState<any>(null);
+    const [activeNeighborhood, setActiveNeighborhood] = useState<any | null>(null);
+    const [cityFacilities, setCityFacilities] = useState<any>(null);
 
-    // The Anti-Flicker Handshake: SWR handles caching, revalidation, and loading states automatically
+    // Pre-load full geometry for accurate bounding boxes and fetch City Facilities
+    useEffect(() => {
+        fetch('/ons_boundaries_gen3.geojson').then(r => r.json()).then(setOnsGeojson).catch(() => { });
+        fetch('/city_facilities.geojson').then(r => r.json()).then(setCityFacilities).catch(() => { });
+    }, []);
+
+    // The Anti-Flicker Handshake for Meetups
     const fetcher = (url: string) => fetch(url).then((res) => res.json());
     const { data: liveEvents, error, isLoading } = useSWR('/api/meetups', fetcher, {
-        fallbackData: [], // Fallback ensures `liveEvents` is always an array initially, stopping crashes
+        fallbackData: [],
         revalidateOnFocus: false
     });
+
+    // The Anti-Flicker Handshake for Amenities
+    const neighborhoodBbox = useMemo(() => {
+        if (!activeNeighborhood) return null;
+        try {
+            return turf.bbox(activeNeighborhood).join(',');
+        } catch (e) {
+            return null;
+        }
+    }, [activeNeighborhood]);
+
+    const { data: rawAmenitiesData, isLoading: isLoadingAmenities } = useSWR(
+        neighborhoodBbox ? `/api/amenities?bbox=${neighborhoodBbox}` : null,
+        fetcher,
+        { fallbackData: { type: 'FeatureCollection', features: [] }, revalidateOnFocus: false }
+    );
+
+    // Filter amenities to strictly within the active polygon
+    const localAmenities = useMemo(() => {
+        if (!activeNeighborhood || !rawAmenitiesData?.features?.length) return [];
+        return rawAmenitiesData.features.filter((f: any) => {
+            try {
+                if (!f.geometry || !f.geometry.coordinates) return false;
+                return turf.booleanPointInPolygon(turf.point(f.geometry.coordinates), activeNeighborhood.geometry);
+            } catch (e) {
+                return false;
+            }
+        });
+    }, [rawAmenitiesData, activeNeighborhood]);
 
     // Filter hubs
     const visibleHubs = useMemo(() => {
@@ -40,6 +79,7 @@ export default function OttawaMap() {
 
     const resetView = () => {
         setActiveHub(null);
+        setActiveNeighborhood(null);
         mapRef.current?.flyTo({
             center: [-75.6972, 45.4215],
             zoom: 12,
@@ -48,17 +88,6 @@ export default function OttawaMap() {
         });
     };
 
-    // Determine marker color by category
-    const getMarkerColor = (category: string) => {
-        switch (category) {
-            case 'Wellness':
-            case 'Outdoor Adventure': return 'bg-emerald-400 border-emerald-200';
-            case 'Studio Fitness': return 'bg-purple-500 border-purple-300';
-            case 'Team Sports': return 'bg-orange-500 border-orange-300';
-            case 'Live Event': return 'bg-red-500 border-red-300';
-            default: return 'bg-blue-500 border-blue-300';
-        }
-    };
 
     return (
         <div className="w-full h-screen relative flex">
@@ -86,12 +115,35 @@ export default function OttawaMap() {
                 }}
                 mapStyle="https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json"
                 style={{ width: '100%', height: '100%' }}
+                interactiveLayerIds={activeNeighborhood ? ['event-dots', 'neighborhoods-fill', 'amenity-dots', 'facility-dots'] : ['event-dots', 'neighborhoods-fill', 'facility-dots']}
+                onClick={(e) => {
+                    const feature = e.features?.[0];
+                    if (feature) {
+                        if (feature.layer.id === 'event-dots' || feature.properties?.id) {
+                            onHubClick(feature.properties);
+                            setActiveNeighborhood(null);
+                        } else if (feature.layer.id === 'neighborhoods-fill' && onsGeojson) {
+                            const fullFeature = onsGeojson.features.find((f: any) => f.properties.ONS_Name === feature.properties?.ONS_Name);
+                            if (fullFeature) {
+                                setActiveNeighborhood(fullFeature);
+                                setActiveHub(null);
+                                try {
+                                    const bbox = turf.bbox(fullFeature) as [number, number, number, number];
+                                    mapRef.current?.fitBounds(bbox, { padding: 80, duration: 1500 });
+                                } catch (e) { }
+                            }
+                        }
+                    } else {
+                        setActiveHub(null);
+                        setActiveNeighborhood(null);
+                    }
+                }}
             >
                 <NavigationControl position="bottom-right" />
 
                 {/* Neighborhood Highlights Layer */}
                 {!activeHub && filterCategory === 'All' && (
-                    <Source id="neighborhoods" type="geojson" data="/neighborhoods.geojson">
+                    <Source id="neighborhoods" type="geojson" data="/ons_boundaries_gen3.geojson">
                         <Layer
                             id="neighborhoods-fill"
                             type="fill"
@@ -114,7 +166,7 @@ export default function OttawaMap() {
                             id="neighborhoods-label"
                             type="symbol"
                             layout={{
-                                'text-field': ['get', 'name'],
+                                'text-field': ['get', 'ONS_Name'],
                                 'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
                                 'text-size': 16,
                                 'text-transform': 'uppercase',
@@ -130,40 +182,147 @@ export default function OttawaMap() {
                     </Source>
                 )}
 
-                {visibleHubs.map((hub) => (
-                    <Marker
-                        key={hub.id}
-                        longitude={hub.lng}
-                        latitude={hub.lat}
-                        anchor="bottom"
-                        onClick={(e) => {
-                            e.originalEvent.stopPropagation();
-                            onHubClick(hub);
+                <Source id="live-events" type="geojson" data={{
+                    type: 'FeatureCollection',
+                    features: visibleHubs.map((hub: any) => ({
+                        type: 'Feature',
+                        geometry: { type: 'Point', coordinates: [hub.lng, hub.lat] },
+                        properties: { ...hub }
+                    }))
+                }}>
+                    <Layer
+                        id="event-dots"
+                        type="circle"
+                        paint={{
+                            'circle-radius': 6,
+                            'circle-color': [
+                                'match',
+                                ['get', 'category'],
+                                'Wellness', '#34d399',
+                                'Outdoor Adventure', '#34d399',
+                                'Studio Fitness', '#a855f7',
+                                'Team Sports', '#f97316',
+                                'Live Event', '#ef4444',
+                                /* default */ '#3b82f6'
+                            ],
+                            'circle-stroke-width': 2,
+                            'circle-stroke-color': '#ffffff'
                         }}
-                    >
-                        {hub.id === 'billings-ra-centre' ? (
-                            <div className="flex flex-col items-center cursor-pointer transition-transform hover:scale-110">
-                                <div className={`cursor-pointer rounded-full h-4 w-4 border-2 shadow-[0_0_15px_rgba(255,255,255,0.5)] ${getMarkerColor(hub.category)}`} />
-                                <span className="mt-1 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded border border-white/20 text-white font-bold text-[10px] uppercase tracking-widest whitespace-nowrap">RA Centre</span>
-                            </div>
-                        ) : hub.id === 'lansdowne-glebe-dows' ? (
-                            <div className="flex flex-col items-center cursor-pointer transition-transform hover:scale-110">
-                                <div className={`cursor-pointer rounded-full h-5 w-5 border-2 shadow-[0_0_20px_rgba(16,185,129,0.8)] animate-pulse ${getMarkerColor(hub.category)}`} />
-                                <span className="mt-1 bg-emerald-500/20 backdrop-blur-md px-2 py-0.5 rounded border border-emerald-500/30 text-emerald-400 font-bold text-[10px] uppercase tracking-widest whitespace-nowrap text-shadow">Glebe & Dow's</span>
-                            </div>
-                        ) : (
-                            <div className={`cursor-pointer rounded-full h-5 w-5 border-2 shadow-[0_0_10px_rgba(255,255,255,0.3)] transition-transform hover:scale-125 ${getMarkerColor(hub.category)}`} />
-                        )}
-                    </Marker>
-                ))}
+                    />
+                </Source>
 
-                {/* SWR Loading Indicator (Optional UI feedback while live data arrives) */}
-                {isLoading && (
+                {/* Amenities GeoJSON Layer */}
+                {activeNeighborhood && localAmenities.length > 0 && (
+                    <Source id="amenities" type="geojson" data={{ type: 'FeatureCollection', features: localAmenities }}>
+                        <Layer
+                            id="amenity-dots"
+                            type="circle"
+                            paint={{
+                                'circle-radius': 5,
+                                'circle-color': [
+                                    'match',
+                                    ['get', 'category'],
+                                    'Park', '#10b981',
+                                    'Basketball', '#f97316',
+                                    'Tennis', '#eab308',
+                                    'Gym / Fitness', '#ec4899',
+                                    '#3b82f6'
+                                ],
+                                'circle-stroke-width': 1.5,
+                                'circle-stroke-color': '#ffffff'
+                            }}
+                        />
+                        <Layer
+                            id="amenity-labels"
+                            type="symbol"
+                            layout={{
+                                'text-field': ['get', 'name'],
+                                'text-font': ['Open Sans Regular', 'Arial Unicode MS Regular'],
+                                'text-size': 10,
+                                'text-offset': [0, 1],
+                                'text-anchor': 'top',
+                                'symbol-sort-key': 2
+                            }}
+                            paint={{
+                                'text-color': '#ffffff',
+                                'text-halo-color': 'rgba(0,0,0,0.8)',
+                                'text-halo-width': 1
+                            }}
+                        />
+                    </Source>
+                )}
+
+                {/* City Facilities GeoJSON Layer */}
+                {cityFacilities && filterCategory === 'All' && (
+                    <Source id="city-facilities" type="geojson" data={cityFacilities}>
+                        <Layer
+                            id="facility-dots"
+                            type="circle"
+                            paint={{
+                                'circle-radius': 4.5,
+                                'circle-color': '#0ea5e9', // Sky Blue for City Facilities
+                                'circle-stroke-width': 1.5,
+                                'circle-stroke-color': '#ffffff'
+                            }}
+                        />
+                        <Layer
+                            id="facility-labels"
+                            type="symbol"
+                            layout={{
+                                'text-field': ['get', 'name'],
+                                'text-font': ['Open Sans Regular', 'Arial Unicode MS Regular'],
+                                'text-size': 11,
+                                'text-offset': [0, 1.2],
+                                'text-anchor': 'top',
+                                'symbol-sort-key': 1
+                            }}
+                            paint={{
+                                'text-color': '#ffffff',
+                                'text-halo-color': 'rgba(0,0,0,0.8)',
+                                'text-halo-width': 1
+                            }}
+                        />
+                    </Source>
+                )}
+
+                {/* SWR Loading Indicator */}
+                {(isLoading || isLoadingAmenities) && (
                     <div className="absolute bottom-4 right-4 bg-black/50 text-white/50 px-3 py-1.5 rounded-full text-xs animate-pulse backdrop-blur-md border border-white/5">
-                        Syncing live events...
+                        {isLoadingAmenities ? "Scanning OpenStreetMap..." : "Syncing live events..."}
                     </div>
                 )}
             </Map>
+
+            {/* Neighborhood Amenities Overlay */}
+            {activeNeighborhood && (
+                <div className="absolute top-6 right-6 w-80 bg-black/60 backdrop-blur-xl border border-white/10 p-5 rounded-2xl shadow-2xl text-white z-10 transition-all pointer-events-auto max-h-[80vh] flex flex-col">
+                    <div className="flex justify-between items-start mb-4">
+                        <h2 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-400 uppercase tracking-widest">{activeNeighborhood.properties.ONS_Name}</h2>
+                        <button onClick={() => setActiveNeighborhood(null)} className="text-white/50 hover:text-white">&times;</button>
+                    </div>
+                    {isLoadingAmenities ? (
+                        <div className="text-white/50 text-sm animate-pulse">Scanning OpenStreetMap for local amenities...</div>
+                    ) : (
+                        <div className="space-y-4 overflow-y-auto pr-2 custom-scrollbar">
+                            {['Basketball', 'Tennis', 'Gym / Fitness', 'Park'].map(cat => {
+                                const items = localAmenities.filter((a: any) => a.properties.category === cat);
+                                if (items.length === 0) return null;
+                                return (
+                                    <div key={cat}>
+                                        <h3 className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2">{cat} ({items.length})</h3>
+                                        <ul className="space-y-1">
+                                            {items.map((item: any, i: number) => (
+                                                <li key={i} className="text-sm truncate text-white/90">• {item.properties.name}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )
+                            })}
+                            {localAmenities.length === 0 && <div className="text-white/50 italic text-sm">No mapped amenities found.</div>}
+                        </div>
+                    )}
+                </div>
+            )}
         </div>
     );
 }

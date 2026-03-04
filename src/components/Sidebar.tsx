@@ -40,7 +40,7 @@ export default function Sidebar({ hubs, activeHub, onHubSelect, filterCategory, 
                 <h1 className="text-2xl font-bold tracking-tight bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
                     Movement Hubs
                 </h1>
-                <p className="text-sm text-neutral-400 mt-1">Ottawa's cultural & active epicentres.</p>
+                <p className="text-sm text-neutral-400 mt-1">Ottawa&apos;s cultural & active epicentres.</p>
             </div>
 
             {/* Filters (Main view when no hub is selected) */}

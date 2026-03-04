@@ -1,0 +1,3218 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6478005,
+          45.373205
+        ]
+      },
+      "properties": {
+        "id": 0,
+        "name": "Albion Heatherington Recreation Centre",
+        "address": "1560 Heatherington RD",
+        "phone": "(613) 247-4828",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7312216,
+          45.3806379
+        ]
+      },
+      "properties": {
+        "id": 1,
+        "name": "Alexander Community Centre",
+        "address": "960 Silver ST",
+        "phone": "(613) 798-8978",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7113683,
+          45.1309749
+        ]
+      },
+      "properties": {
+        "id": 3,
+        "name": "Alfred Taylor Recreation Facility",
+        "address": "2300 Community WAY",
+        "phone": "(613) 489-3975",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6645258,
+          45.3838681
+        ]
+      },
+      "properties": {
+        "id": 4,
+        "name": "Alta Vista Public School",
+        "address": "1349 Randall AVE",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.477641,
+          45.452809
+        ]
+      },
+      "properties": {
+        "id": 5,
+        "name": "Aquaview Community Hall",
+        "address": "318 Aquaview",
+        "phone": "(613) 580-2782",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.4667737,
+          45.4582399
+        ]
+      },
+      "properties": {
+        "id": 6,
+        "name": "Avalon Elementary Public School",
+        "address": "2080 Portobello BLVD",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7452151,
+          45.265869
+        ]
+      },
+      "properties": {
+        "id": 7,
+        "name": "Barrhaven on the Green Driving Range",
+        "address": "3232 Jockvale RD",
+        "phone": "(613) 823-7996",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.5636703,
+          45.4341683
+        ]
+      },
+      "properties": {
+        "id": 9,
+        "name": "Bearbrook Outdoor Pool",
+        "address": "2679 Innes RD",
+        "phone": "(613) 824-8300",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.899747,
+          45.3290132
+        ]
+      },
+      "properties": {
+        "id": 10,
+        "name": "Beaverbrook Outdoor Pool",
+        "address": "2 Beaverbrook RD",
+        "phone": "(613) 591-3061",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.810951,
+          45.324706
+        ]
+      },
+      "properties": {
+        "id": 11,
+        "name": "Bell Centennial Arena",
+        "address": "50 Cassidy RD",
+        "phone": "(613) 828-9629",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.8095646,
+          45.3264476
+        ]
+      },
+      "properties": {
+        "id": 12,
+        "name": "Bell High School",
+        "address": "40 Cassidy RD",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7369306,
+          45.3728138
+        ]
+      },
+      "properties": {
+        "id": 13,
+        "name": "Bellevue Community Center",
+        "address": "1475 Caldwell AVE",
+        "phone": "(613) 798-8917",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.738372,
+          45.2805166
+        ]
+      },
+      "properties": {
+        "id": 16,
+        "name": "Berrigan Elementary School",
+        "address": "199 Berrigan DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6727153,
+          45.3897685
+        ]
+      },
+      "properties": {
+        "id": 17,
+        "name": "Billings Estate National Historic Site",
+        "address": "2100 Cabot ST",
+        "phone": "(613) 247-4830",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.5639874,
+          45.4304216
+        ]
+      },
+      "properties": {
+        "id": 18,
+        "name": "Blackburn Arena",
+        "address": "200 Glen Park DR",
+        "phone": "(613) 824-5197",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.5631466,
+          45.4303586
+        ]
+      },
+      "properties": {
+        "id": 19,
+        "name": "Blackburn Hamlet Community Hall",
+        "address": "190 Glen Park DR",
+        "phone": "(613) 580-2782",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6245076,
+          45.3505326
+        ]
+      },
+      "properties": {
+        "id": 20,
+        "name": "Blossom Park Public School",
+        "address": "3810 Sixth ST",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.5447921,
+          45.4663445
+        ]
+      },
+      "properties": {
+        "id": 21,
+        "name": "Bob MacQuarrie Recreation Complex - Orl�ans",
+        "address": "1490 Youville DR",
+        "phone": "(613) 824-0819",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6889059,
+          45.3858667
+        ]
+      },
+      "properties": {
+        "id": 23,
+        "name": "Brewer Pool",
+        "address": "100 Brewer WAY",
+        "phone": "(613) 247-4938",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.777472,
+          45.3379719
+        ]
+      },
+      "properties": {
+        "id": 24,
+        "name": "Briargreen Public School",
+        "address": "19 Parkfield CRES",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.8616762,
+          45.2849097
+        ]
+      },
+      "properties": {
+        "id": 25,
+        "name": "Bridlewood Community Centre",
+        "address": "63 Bluegrass DR",
+        "phone": "(613) 580-2739",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.8024662,
+          45.3635002
+        ]
+      },
+      "properties": {
+        "id": 26,
+        "name": "Britannia Park",
+        "address": "2805 Carling AVE",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7585788,
+          45.3823889
+        ]
+      },
+      "properties": {
+        "id": 27,
+        "name": "Broadview Public School",
+        "address": "590 Broadview AVE",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.5393252,
+          45.4828818
+        ]
+      },
+      "properties": {
+        "id": 28,
+        "name": "Cairine Wilson Secondary School",
+        "address": "975 Orleans BLVD",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6288282,
+          45.3903165
+        ]
+      },
+      "properties": {
+        "id": 29,
+        "name": "Canterbury Park",
+        "address": "2185 Arch ST",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6288282,
+          45.3903165
+        ]
+      },
+      "properties": {
+        "id": 30,
+        "name": "Canterbury Recreation Complex",
+        "address": "2185 Arch ST",
+        "phone": "(613) 247-4865",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7027076,
+          45.3597725
+        ]
+      },
+      "properties": {
+        "id": 31,
+        "name": "Carleton Heights Community Center",
+        "address": "1665 Apeldoorn AVE",
+        "phone": "(613) 226-2208",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7012166,
+          45.3603339
+        ]
+      },
+      "properties": {
+        "id": 33,
+        "name": "Carleton Heights Public School",
+        "address": "1660 Prince of Wales DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7391157,
+          45.3724525
+        ]
+      },
+      "properties": {
+        "id": 34,
+        "name": "Carlington Recreation Centre",
+        "address": "1520 Caldwell AVE",
+        "phone": "(613) 798-8920",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.4634711,
+          45.3651383
+        ]
+      },
+      "properties": {
+        "id": 35,
+        "name": "Carlsbad Springs Community Centre",
+        "address": "6020 Eighth Line RD",
+        "phone": "(613) 580-2782",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.0361053,
+          45.3445603
+        ]
+      },
+      "properties": {
+        "id": 36,
+        "name": "Carp Memorial Hall",
+        "address": "3739 Carp RD",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.8973426,
+          45.3052003
+        ]
+      },
+      "properties": {
+        "id": 37,
+        "name": "Castlefrank Elementary School",
+        "address": "55 McCurdy DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6867699,
+          45.4306505
+        ]
+      },
+      "properties": {
+        "id": 38,
+        "name": "Champagne Fitness Centre",
+        "address": "321 King Edward AVE",
+        "phone": "(613) 244-4402",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7232845,
+          45.2719659
+        ]
+      },
+      "properties": {
+        "id": 39,
+        "name": "Chapman Mills Community Building",
+        "address": "424 Chapman Mills Drive",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7520634,
+          45.2736652
+        ]
+      },
+      "properties": {
+        "id": 40,
+        "name": "Charlie Conacher Community Building",
+        "address": "30 Wessex Road",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7544879,
+          45.3922367
+        ]
+      },
+      "properties": {
+        "id": 41,
+        "name": "Churchill Seniors Recreation Centre",
+        "address": "345 Richmond RD",
+        "phone": "(613) 798-8927",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7472493,
+          45.328504
+        ]
+      },
+      "properties": {
+        "id": 42,
+        "name": "Confederation High School",
+        "address": "1645 Woodroffe AVE",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.0933942,
+          45.499623
+        ]
+      },
+      "properties": {
+        "id": 43,
+        "name": "Constance Bay Community Centre",
+        "address": "262 Len Purcell DR",
+        "phone": "(613) 832-1050",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7639805,
+          45.3456385
+        ]
+      },
+      "properties": {
+        "id": 44,
+        "name": "Mary Pitt Centre",
+        "address": "100 Constellation",
+        "phone": "(613) 580-2424",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.5360955,
+          45.47024
+        ]
+      },
+      "properties": {
+        "id": 45,
+        "name": "Convent Glen Elementary School",
+        "address": "1708 Grey Nuns DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.8279404,
+          45.3456346
+        ]
+      },
+      "properties": {
+        "id": 46,
+        "name": "Corkstown Outdoor Pool",
+        "address": "61 Corkstown RD",
+        "phone": "(613) 820-1636",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7431528,
+          45.3431066
+        ]
+      },
+      "properties": {
+        "id": 47,
+        "name": "Crestview Outdoor Pool",
+        "address": "56 Fieldrow",
+        "phone": "(613) 225-7250",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.3909503,
+          45.518113
+        ]
+      },
+      "properties": {
+        "id": 48,
+        "name": "Cumberland Heritage Village Museum",
+        "address": "2940 Old Montreal RD",
+        "phone": "(613) 833-3059",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6199021,
+          45.428582
+        ]
+      },
+      "properties": {
+        "id": 49,
+        "name": "Cyrville Community Center",
+        "address": "4355 Halmont DR",
+        "phone": "(613) 748-1771",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7695914,
+          45.3652924
+        ]
+      },
+      "properties": {
+        "id": 50,
+        "name": "D. Roy Kennedy Public School",
+        "address": "919 Woodroffe AVE",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.656502,
+          45.3678008
+        ]
+      },
+      "properties": {
+        "id": 51,
+        "name": "Deborah Anne Kirwan Pool",
+        "address": "1300 Kitchener AVE",
+        "phone": "(613) 247-4820",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6276651,
+          45.4025858
+        ]
+      },
+      "properties": {
+        "id": 52,
+        "name": "Dempsey Community Centre",
+        "address": "1895 Russell RD",
+        "phone": "(613) 247-4846",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.0231633,
+          45.4207255
+        ]
+      },
+      "properties": {
+        "id": 54,
+        "name": "Dunrobin Community Centre",
+        "address": "1151 Thomas A Dolan Parkway",
+        "phone": "(613) 832-3763",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.4737236,
+          45.4477888
+        ]
+      },
+      "properties": {
+        "id": 55,
+        "name": "�cole �l�mentaire Alain-Fortin",
+        "address": "676 Lakeridge DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.4850061,
+          45.4656485
+        ]
+      },
+      "properties": {
+        "id": 56,
+        "name": "Ecole �l�mentaire Jeanne-Sauv�",
+        "address": "1917 Gardenway DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7360772,
+          45.2457337
+        ]
+      },
+      "properties": {
+        "id": 57,
+        "name": "�cole �l�mentaire Sainte-Kateri",
+        "address": "2450 River Mist RD",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.672949,
+          45.3636723
+        ]
+      },
+      "properties": {
+        "id": 58,
+        "name": "�cole George Etienne Cartier",
+        "address": "880 Thorndale DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6804593,
+          45.4245583
+        ]
+      },
+      "properties": {
+        "id": 59,
+        "name": "Ecole publique Franco Jeunesse",
+        "address": "119 Osgoode ST",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7360128,
+          45.273587
+        ]
+      },
+      "properties": {
+        "id": 60,
+        "name": "Ecole Sec Catholique Pierre-Savard",
+        "address": "1110 Longfields DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.5622023,
+          45.4338463
+        ]
+      },
+      "properties": {
+        "id": 61,
+        "name": "Emily Carr Middle School",
+        "address": "2681 Innes RD",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.8567995,
+          45.290505
+        ]
+      },
+      "properties": {
+        "id": 63,
+        "name": "Eva James Memorial Community Centre",
+        "address": "65 Stonehaven DR",
+        "phone": "(613) 271-0712",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.4868393,
+          45.4813036
+        ]
+      },
+      "properties": {
+        "id": 64,
+        "name": "Fallingbrook Elementary School",
+        "address": "679 Deancourt",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7218794,
+          45.3647793
+        ]
+      },
+      "properties": {
+        "id": 65,
+        "name": "Fisher Heights Community Place",
+        "address": "31 Sutton PL",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7307507,
+          45.3952999
+        ]
+      },
+      "properties": {
+        "id": 66,
+        "name": "Fisher Park Community Centre",
+        "address": "250 Holland AVE",
+        "phone": "(613) 798-8945",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.2053169,
+          45.4696753
+        ]
+      },
+      "properties": {
+        "id": 67,
+        "name": "Fitzroy Harbour Community Centre",
+        "address": "100 Clifford Campbell ST",
+        "phone": "(613) 623-5241",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.212985,
+          45.4675152
+        ]
+      },
+      "properties": {
+        "id": 68,
+        "name": "Fitzroy Harbour Elementary School",
+        "address": "6830 Harbour ST",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.643053,
+          45.4396271
+        ]
+      },
+      "properties": {
+        "id": 69,
+        "name": "Forbes Park",
+        "address": "669 Paul AVE",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.5380463,
+          45.4495855
+        ]
+      },
+      "properties": {
+        "id": 70,
+        "name": "Forest Valley Elementary School",
+        "address": "1570 Forest Valley DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7943635,
+          45.349795
+        ]
+      },
+      "properties": {
+        "id": 71,
+        "name": "Foster Farm Community Centre",
+        "address": "1065 Ramsey CRES",
+        "phone": "(613) 828-2004",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6898378,
+          45.2755164
+        ]
+      },
+      "properties": {
+        "id": 72,
+        "name": "Four Season's Park",
+        "address": "4386 Spratt RD",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.4633271,
+          45.4544879
+        ]
+      },
+      "properties": {
+        "id": 73,
+        "name": "Fran�ois Dupuis Recreation Centre",
+        "address": "2263 Portobello BOUL",
+        "phone": "(613) 580-8080",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.5978083,
+          45.3311872
+        ]
+      },
+      "properties": {
+        "id": 74,
+        "name": "Fred G. Barrett Arena",
+        "address": "3280 Leitrim RD",
+        "phone": "(613) 580-2595",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.9111204,
+          45.2797127
+        ]
+      },
+      "properties": {
+        "id": 75,
+        "name": "Fringewood Community Centre",
+        "address": "14 Fringewood DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.9111204,
+          45.2797127
+        ]
+      },
+      "properties": {
+        "id": 76,
+        "name": "Fringewood Park",
+        "address": "14 Fringewood DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7181973,
+          45.3526872
+        ]
+      },
+      "properties": {
+        "id": 77,
+        "name": "General Burns Community Building",
+        "address": "86 Argue DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7189468,
+          45.3517452
+        ]
+      },
+      "properties": {
+        "id": 78,
+        "name": "General Burns Outdoor Pool",
+        "address": "107 Chesterton DR",
+        "phone": "(613) 225-7970",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.8848871,
+          45.296136
+        ]
+      },
+      "properties": {
+        "id": 79,
+        "name": "Glen Cairn Community Centre",
+        "address": "186 Morrena RD",
+        "phone": "(613) 836-4527",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.5710049,
+          45.4343695
+        ]
+      },
+      "properties": {
+        "id": 80,
+        "name": "Glen Ogilvie Public School",
+        "address": "46 Centrepark DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.9078733,
+          45.263135
+        ]
+      },
+      "properties": {
+        "id": 81,
+        "name": "Goulbourn Recreation Complex",
+        "address": "1500 Shea RD",
+        "phone": "(613) 831-1169",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.5568141,
+          45.2613517
+        ]
+      },
+      "properties": {
+        "id": 83,
+        "name": "Greely Community Centre",
+        "address": "1448 Meadow DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.5631216,
+          45.2605143
+        ]
+      },
+      "properties": {
+        "id": 84,
+        "name": "Greely Elementary School",
+        "address": "7066 Parkway RD",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7338408,
+          45.2497669
+        ]
+      },
+      "properties": {
+        "id": 85,
+        "name": "Greenbank Middle School",
+        "address": "168 Greenbank RD",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6354695,
+          45.363304
+        ]
+      },
+      "properties": {
+        "id": 86,
+        "name": "Greenboro Community Centre",
+        "address": "363 Lorry Greenberg",
+        "phone": "(613) 580-2805",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.512557,
+          45.4600871
+        ]
+      },
+      "properties": {
+        "id": 87,
+        "name": "Henry Larsen Elementary School",
+        "address": "1750 Sunview DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6543613,
+          45.3789288
+        ]
+      },
+      "properties": {
+        "id": 88,
+        "name": "Heron Community Centre",
+        "address": "1480 Heron RD",
+        "phone": "(613) 247-4808",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6400738,
+          45.398682
+        ]
+      },
+      "properties": {
+        "id": 89,
+        "name": "Hillcrest High School",
+        "address": "1900 Dauphin RD",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7242627,
+          45.4032794
+        ]
+      },
+      "properties": {
+        "id": 90,
+        "name": "Hintonburg Community Centre",
+        "address": "1064 Wellington ST W",
+        "phone": "(613) 798-8874",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7196489,
+          45.3982037
+        ]
+      },
+      "properties": {
+        "id": 91,
+        "name": "Hintonburg Park",
+        "address": "46 Fairmont AVE",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6629825,
+          45.3535825
+        ]
+      },
+      "properties": {
+        "id": 92,
+        "name": "Holy Family Catholic School",
+        "address": "245 Owl DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7265115,
+          45.3419566
+        ]
+      },
+      "properties": {
+        "id": 93,
+        "name": "Howard Darwin Centennial-Merivale Arena",
+        "address": "1765 Merivale RD",
+        "phone": "(613) 224-3168",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.672744,
+          45.3520615
+        ]
+      },
+      "properties": {
+        "id": 94,
+        "name": "Hunt Club-Riverside Park C.C.",
+        "address": "3320 Paul Anka DR",
+        "phone": "(613) 260-1299",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.0299001,
+          45.3462239
+        ]
+      },
+      "properties": {
+        "id": 95,
+        "name": "Huntley Centennial Public School",
+        "address": "118 Langstaff DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.0510866,
+          45.3534263
+        ]
+      },
+      "properties": {
+        "id": 97,
+        "name": "Huntley Community Mess Hall",
+        "address": "2240 Craig Side RD",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7465148,
+          45.3745297
+        ]
+      },
+      "properties": {
+        "id": 98,
+        "name": "J. A. Dulude Arena",
+        "address": "941 Clyde AVE",
+        "phone": "(613) 798-1716",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.9401898,
+          45.3532536
+        ]
+      },
+      "properties": {
+        "id": 101,
+        "name": "Jack Donahue Public School",
+        "address": "110 Penrith ST",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6888178,
+          45.4152799
+        ]
+      },
+      "properties": {
+        "id": 102,
+        "name": "Jack Purcell Complex",
+        "address": "320 Jack Purcell LN",
+        "phone": "(613) 564-1050",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6597787,
+          45.3729321
+        ]
+      },
+      "properties": {
+        "id": 103,
+        "name": "Jim Durrell Recreation Centre",
+        "address": "1265 Walkley RD",
+        "phone": "(613) 247-4811",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.760161,
+          45.2789633
+        ]
+      },
+      "properties": {
+        "id": 104,
+        "name": "Jockvale Elementary School",
+        "address": "101 Malvern DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.8956053,
+          45.321359
+        ]
+      },
+      "properties": {
+        "id": 105,
+        "name": "John G. Mlacak Centre",
+        "address": "2500 Campeau DR",
+        "phone": "(613) 599-4480",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.9258508,
+          45.2609516
+        ]
+      },
+      "properties": {
+        "id": 106,
+        "name": "Johnny Leroux Stittsville Com. Arena",
+        "address": "10 Warner-Colpitts LN",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.8998312,
+          45.3116799
+        ]
+      },
+      "properties": {
+        "id": 107,
+        "name": "Kanata Leisure Centre and Wave Pool",
+        "address": "70 Aird PL",
+        "phone": "(613) 591-9283",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.898618,
+          45.2950304
+        ]
+      },
+      "properties": {
+        "id": 108,
+        "name": "Kanata Recreation Complex",
+        "address": "100 Walter Baker PL",
+        "phone": "(613) 836-3121",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.8899825,
+          45.3100655
+        ]
+      },
+      "properties": {
+        "id": 109,
+        "name": "Katimavik Community Centre",
+        "address": "64 Chimo DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.1873343,
+          45.3933536
+        ]
+      },
+      "properties": {
+        "id": 110,
+        "name": "Kinburn Community Centre",
+        "address": "3045 Kinburn Side RD",
+        "phone": "(613) 832-0075",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.9391419,
+          45.3492087
+        ]
+      },
+      "properties": {
+        "id": 111,
+        "name": "Klondike Road Park",
+        "address": "1347 Halton TER",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7631278,
+          45.2823588
+        ]
+      },
+      "properties": {
+        "id": 112,
+        "name": "Larkin House Community Building",
+        "address": "76 Larkin DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6810835,
+          45.4342378
+        ]
+      },
+      "properties": {
+        "id": 113,
+        "name": "Le Patro",
+        "address": "40 Cobourg ST",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6810835,
+          45.4342378
+        ]
+      },
+      "properties": {
+        "id": 114,
+        "name": "Lowertown Pool",
+        "address": "40 Cobourg ST",
+        "phone": "(613) 244-4406",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6865968,
+          45.2220555
+        ]
+      },
+      "properties": {
+        "id": 115,
+        "name": "Manotick Arena",
+        "address": "5572 Doctor Leach DR",
+        "phone": "(613) 692-4772",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7610811,
+          45.33013
+        ]
+      },
+      "properties": {
+        "id": 116,
+        "name": "Margaret Rywak Community Bldg. (Manordal",
+        "address": "68 Knoxdale RD",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.672744,
+          45.3520615
+        ]
+      },
+      "properties": {
+        "id": 117,
+        "name": "McCarthy Park",
+        "address": "3320 Paul Anka DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7018098,
+          45.4092335
+        ]
+      },
+      "properties": {
+        "id": 118,
+        "name": "McNabb Recreation Centre",
+        "address": "180 Percy ST",
+        "phone": "(613) 564-1070",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7365176,
+          45.3448537
+        ]
+      },
+      "properties": {
+        "id": 119,
+        "name": "Meadowlands Public School",
+        "address": "10 Fieldrow ST",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7598895,
+          45.342126
+        ]
+      },
+      "properties": {
+        "id": 120,
+        "name": "Meridian Seniors Building",
+        "address": "3 Meridian PL",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.471776,
+          45.2366785
+        ]
+      },
+      "properties": {
+        "id": 121,
+        "name": "Metcalfe Client Service Centre",
+        "address": "8243 Victoria ST",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.4689574,
+          45.2301597
+        ]
+      },
+      "properties": {
+        "id": 122,
+        "name": "Metcalfe Community Centre",
+        "address": "2785 8th Line RD",
+        "phone": "(613) 821-1237",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.8020142,
+          45.354627
+        ]
+      },
+      "properties": {
+        "id": 123,
+        "name": "Michele Heights Community Centre",
+        "address": "2955 Michele DR",
+        "phone": "(613) 828-5100",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7520634,
+          45.2736652
+        ]
+      },
+      "properties": {
+        "id": 124,
+        "name": "Moloughney Park (Wessex Park)",
+        "address": "30 Wessex RD",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6909816,
+          45.3675594
+        ]
+      },
+      "properties": {
+        "id": 125,
+        "name": "Mooney's Bay Park",
+        "address": "2960 Riverside DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7397469,
+          45.2839841
+        ]
+      },
+      "properties": {
+        "id": 126,
+        "name": "Mother Teresa High School",
+        "address": "440 Longfields DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.9387774,
+          45.1628158
+        ]
+      },
+      "properties": {
+        "id": 127,
+        "name": "Munster Community Centre",
+        "address": "58 Dogwood DR",
+        "phone": "(613) 831-1169",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7574503,
+          45.3609924
+        ]
+      },
+      "properties": {
+        "id": 128,
+        "name": "Navaho Park",
+        "address": "2031 Navaho DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.4217732,
+          45.4210808
+        ]
+      },
+      "properties": {
+        "id": 129,
+        "name": "Navan Memorial Community Centre",
+        "address": "1295 Colonial RD",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.8217942,
+          45.328495
+        ]
+      },
+      "properties": {
+        "id": 130,
+        "name": "Nepean Creative Arts Centre",
+        "address": "35 Stafford RD",
+        "phone": "(613) 596-5783",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7427167,
+          45.3263102
+        ]
+      },
+      "properties": {
+        "id": 131,
+        "name": "Nepean Sportsplex",
+        "address": "1701 Woodroffe AVE",
+        "phone": "(613) 580-2828",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7427167,
+          45.3263102
+        ]
+      },
+      "properties": {
+        "id": 132,
+        "name": "Nepean Visual Arts Centre",
+        "address": "1701 Woodroffe AVE",
+        "phone": "(613) 580-2828",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.4916028,
+          45.4276182
+        ]
+      },
+      "properties": {
+        "id": 134,
+        "name": "Notre Dame Des Champs",
+        "address": "3659 Navan RD",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.9339762,
+          45.3555297
+        ]
+      },
+      "properties": {
+        "id": 135,
+        "name": "Old Town Hall (Kanata)",
+        "address": "821 March RD",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.5285089,
+          45.4832738
+        ]
+      },
+      "properties": {
+        "id": 136,
+        "name": "Orleans Wood Elementary School",
+        "address": "7859 Decarie DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6768129,
+          45.4070624
+        ]
+      },
+      "properties": {
+        "id": 137,
+        "name": "Osgoode Community Centre",
+        "address": "5660 Main ST",
+        "phone": "(613) 826-2264",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.656847,
+          45.4254727
+        ]
+      },
+      "properties": {
+        "id": 138,
+        "name": "Overbrook Community Centre",
+        "address": "33 Quill ST",
+        "phone": "(613) 742-5147",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.656847,
+          45.4254727
+        ]
+      },
+      "properties": {
+        "id": 139,
+        "name": "Overbrook Park",
+        "address": "33 Quill ST",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6639265,
+          45.3563607
+        ]
+      },
+      "properties": {
+        "id": 140,
+        "name": "Owl Park",
+        "address": "180 Bourbon ST",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7274078,
+          45.355209
+        ]
+      },
+      "properties": {
+        "id": 141,
+        "name": "Parkwood Hills Public School",
+        "address": "60 Tiverton DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7757995,
+          45.3471125
+        ]
+      },
+      "properties": {
+        "id": 142,
+        "name": "Pinecrest Park",
+        "address": "2240 Torquay AVE",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7847822,
+          45.3443641
+        ]
+      },
+      "properties": {
+        "id": 143,
+        "name": "Pinecrest Public School",
+        "address": "1281 Pinecrest RD",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7745951,
+          45.3483283
+        ]
+      },
+      "properties": {
+        "id": 144,
+        "name": "Pinecrest Recreation Complex",
+        "address": "2250 Torquay AVE",
+        "phone": "(613) 828-3118",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.9536281,
+          45.4397008
+        ]
+      },
+      "properties": {
+        "id": 145,
+        "name": "Pinhey's Point Historic Site",
+        "address": "270 Pinhey's Point RD",
+        "phone": "(613) 247-4830",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7145989,
+          45.407761
+        ]
+      },
+      "properties": {
+        "id": 146,
+        "name": "Plant Recreation Centre",
+        "address": "930 Somerset ST W",
+        "phone": "(613) 232-3000",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.9188279,
+          45.2585519
+        ]
+      },
+      "properties": {
+        "id": 147,
+        "name": "Pretty Street Community Centre",
+        "address": "2 Pretty ST",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.508097,
+          45.4699661
+        ]
+      },
+      "properties": {
+        "id": 148,
+        "name": "Queenswood Heights Centennial Park",
+        "address": "1485 Duford DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.508097,
+          45.4699661
+        ]
+      },
+      "properties": {
+        "id": 149,
+        "name": "Queenswood Heights Community Center",
+        "address": "1485 Duford",
+        "phone": "(613) 580-2595",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.4034726,
+          45.514576
+        ]
+      },
+      "properties": {
+        "id": 150,
+        "name": "R. J. Kennedy Memorial Community Center",
+        "address": "1115 Dunning RD",
+        "phone": "(613) 580-2595",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.4924908,
+          45.4707865
+        ]
+      },
+      "properties": {
+        "id": 151,
+        "name": "Ray Friel Park",
+        "address": "1585 Tenth Line RD",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.4924908,
+          45.4707865
+        ]
+      },
+      "properties": {
+        "id": 152,
+        "name": "Ray Friel Recreation Complex",
+        "address": "1585 Tenth Line RD",
+        "phone": "(613) 830-2747",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.9304974,
+          45.3404271
+        ]
+      },
+      "properties": {
+        "id": 153,
+        "name": "Richcraft Recreation Complex - Kanata",
+        "address": "4101 Innovation DR",
+        "phone": "(613) 580-9696",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.8351982,
+          45.1923672
+        ]
+      },
+      "properties": {
+        "id": 155,
+        "name": "Richmond Elementary School",
+        "address": "3499 McBean",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.838441,
+          45.1957509
+        ]
+      },
+      "properties": {
+        "id": 157,
+        "name": "Richmond Memorial Community Centre",
+        "address": "6095 Perth ST",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6870068,
+          45.2772445
+        ]
+      },
+      "properties": {
+        "id": 158,
+        "name": "Rideauview Community Centre",
+        "address": "4310 Shoreline DR",
+        "phone": "(613) 822-7887",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7067425,
+          45.3679149
+        ]
+      },
+      "properties": {
+        "id": 159,
+        "name": "Rideauview Park",
+        "address": "960 Eiffel AVE",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6587981,
+          45.3761893
+        ]
+      },
+      "properties": {
+        "id": 160,
+        "name": "Ridgemont High School",
+        "address": "2597 Alta Vista DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.657084,
+          45.3688774
+        ]
+      },
+      "properties": {
+        "id": 161,
+        "name": "Ridgemont Park",
+        "address": "1990 Cochrane ST",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7462686,
+          45.2525902
+        ]
+      },
+      "properties": {
+        "id": 162,
+        "name": "River Run Park",
+        "address": "3490 River Run",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6695921,
+          45.4309573
+        ]
+      },
+      "properties": {
+        "id": 163,
+        "name": "Riverain Park",
+        "address": "400 North River RD",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.670674,
+          45.4341886
+        ]
+      },
+      "properties": {
+        "id": 164,
+        "name": "Riverside Memorial Park",
+        "address": "1063 North River RD",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.4034965,
+          45.5166025
+        ]
+      },
+      "properties": {
+        "id": 165,
+        "name": "Riverview Cumberland Elementary School",
+        "address": "2620 Market ST",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6574836,
+          45.4049597
+        ]
+      },
+      "properties": {
+        "id": 166,
+        "name": "Riverview Park",
+        "address": "256 Knox CRES",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6512291,
+          45.394603
+        ]
+      },
+      "properties": {
+        "id": 167,
+        "name": "Robert Andrew Russell Park",
+        "address": "466 Billings AVE",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6511438,
+          45.4328865
+        ]
+      },
+      "properties": {
+        "id": 168,
+        "name": "Robert E. Wilson Public School",
+        "address": "373 McArthur AVE",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.604513,
+          45.4572595
+        ]
+      },
+      "properties": {
+        "id": 169,
+        "name": "Robert Hopkins Public School",
+        "address": "2011 Glenfern AVE",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6277526,
+          45.366613
+        ]
+      },
+      "properties": {
+        "id": 170,
+        "name": "Roberta Bondar Public School",
+        "address": "159 Lorry Greenberg Drive",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.8472675,
+          45.2836373
+        ]
+      },
+      "properties": {
+        "id": 171,
+        "name": "Roch Carrier Elementary School",
+        "address": "401 Stonehaven DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6781551,
+          45.4507679
+        ]
+      },
+      "properties": {
+        "id": 172,
+        "name": "Rockcliffe Park Recreation Center",
+        "address": "380 Springfield RD",
+        "phone": "(613) 842-8578",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7965006,
+          45.3621638
+        ]
+      },
+      "properties": {
+        "id": 173,
+        "name": "Ron Kolbus Lakeside Centre",
+        "address": "102 Greenview AVE",
+        "phone": "(613) 828-4313",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6916059,
+          45.4320569
+        ]
+      },
+      "properties": {
+        "id": 174,
+        "name": "Routhier Community Centre",
+        "address": "172 Guigues AVE",
+        "phone": "(613) 244-4470",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.9235162,
+          45.3175708
+        ]
+      },
+      "properties": {
+        "id": 175,
+        "name": "S.S.#1 Community Centre",
+        "address": "400 Goldridge DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6772578,
+          45.4227935
+        ]
+      },
+      "properties": {
+        "id": 176,
+        "name": "Sandy Hill Community Centre",
+        "address": "250 Somerset ST E",
+        "phone": "(613) 564-1062",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6361019,
+          45.3498764
+        ]
+      },
+      "properties": {
+        "id": 177,
+        "name": "Sawmill Creek C.C. and Pool",
+        "address": "3380 D'aoust AVE",
+        "phone": "(613) 521-4092",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.5112913,
+          45.48064
+        ]
+      },
+      "properties": {
+        "id": 178,
+        "name": "Shenkman Arts Centre",
+        "address": "245 Centrum BLVD",
+        "phone": "(613) 580-2787",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7655386,
+          45.3475324
+        ]
+      },
+      "properties": {
+        "id": 179,
+        "name": "Sir Guy Carleton Secondary School",
+        "address": "55 Centrepointe DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.4623601,
+          45.4715999
+        ]
+      },
+      "properties": {
+        "id": 181,
+        "name": "South Fallingbrook Community Center",
+        "address": "998 Valin",
+        "phone": "(613) 824-0633",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.9270719,
+          45.357145
+        ]
+      },
+      "properties": {
+        "id": 182,
+        "name": "South March Public School",
+        "address": "1032 Klondike RD",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7426302,
+          45.2811361
+        ]
+      },
+      "properties": {
+        "id": 183,
+        "name": "South Nepean Park (Core)",
+        "address": "700 Longfields DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7160634,
+          45.2881244
+        ]
+      },
+      "properties": {
+        "id": 184,
+        "name": "Southpointe Community Building",
+        "address": "220 Stoneway",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6003735,
+          45.4375787
+        ]
+      },
+      "properties": {
+        "id": 185,
+        "name": "Splash Wave Pool",
+        "address": "2040 Ogilvie RD",
+        "phone": "(613) 748-4222",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7324702,
+          45.2537856
+        ]
+      },
+      "properties": {
+        "id": 186,
+        "name": "St. Cecilia School",
+        "address": "3490 Cambrian RD",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7242359,
+          45.271304
+        ]
+      },
+      "properties": {
+        "id": 187,
+        "name": "St. Emily Catholic School",
+        "address": "500 Chapman Mills DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6686204,
+          45.2898332
+        ]
+      },
+      "properties": {
+        "id": 188,
+        "name": "St. Francis Xavier High School",
+        "address": "Spratt RD",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.2160731,
+          45.471542
+        ]
+      },
+      "properties": {
+        "id": 190,
+        "name": "St. Michael, Fitzroy Catholic School",
+        "address": "159 Kedey ST",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.4891665,
+          45.5049149
+        ]
+      },
+      "properties": {
+        "id": 192,
+        "name": "Stuemer Park/Petrie Island",
+        "address": "795 Trim RD",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7295708,
+          45.3368505
+        ]
+      },
+      "properties": {
+        "id": 193,
+        "name": "Tanglewood Community Building",
+        "address": "30 Woodfield",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.5718264,
+          45.4268592
+        ]
+      },
+      "properties": {
+        "id": 194,
+        "name": "Tauvette Park",
+        "address": "2436 Innes RD",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.5396446,
+          45.4771755
+        ]
+      },
+      "properties": {
+        "id": 195,
+        "name": "Terry Fox Elementary School",
+        "address": "6400 Jeanne D'Arc BLVD",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7225666,
+          45.4081078
+        ]
+      },
+      "properties": {
+        "id": 196,
+        "name": "Tom Brown Arena",
+        "address": "141 Bayview RD",
+        "phone": "(613) 798-8945",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7833724,
+          45.3272518
+        ]
+      },
+      "properties": {
+        "id": 197,
+        "name": "Trend-Arlington Community Building",
+        "address": "50 Bellman DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7218453,
+          45.3782018
+        ]
+      },
+      "properties": {
+        "id": 198,
+        "name": "Turnbull School",
+        "address": "1132 Fisher AV",
+        "phone": "(613) 729-9940 ",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.4541654,
+          45.1632871
+        ]
+      },
+      "properties": {
+        "id": 199,
+        "name": "Vernon Community Centre",
+        "address": "7950 Lawrence ST",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.0388612,
+          45.3491434
+        ]
+      },
+      "properties": {
+        "id": 200,
+        "name": "W. Erskine Johnston Arena",
+        "address": "3832 Carp RD",
+        "phone": "(613) 839-3000",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7311787,
+          45.3831601
+        ]
+      },
+      "properties": {
+        "id": 201,
+        "name": "W.E. Gowling Public School",
+        "address": "250 Anna AVE",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7617354,
+          45.2802935
+        ]
+      },
+      "properties": {
+        "id": 202,
+        "name": "Walter Baker Sports Centre",
+        "address": "100 Malvern DR",
+        "phone": "(613) 580-2788",
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.046915,
+          45.3535578
+        ]
+      },
+      "properties": {
+        "id": 203,
+        "name": "West Carleton Community Complex",
+        "address": "5670 Carp RD",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7829731,
+          45.3646243
+        ]
+      },
+      "properties": {
+        "id": 204,
+        "name": "Westboro Beach (Kitchissippi Lookout)",
+        "address": "1 Ottawa River PKY",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.835253,
+          45.3150443
+        ]
+      },
+      "properties": {
+        "id": 205,
+        "name": "Westcliffe Community Building",
+        "address": "681 Seyton DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.7791698,
+          45.3624087
+        ]
+      },
+      "properties": {
+        "id": 206,
+        "name": "Woodroffe High School",
+        "address": "2410 Georgina DR",
+        "phone": null,
+        "category": "Facility"
+      }
+    }
+  ]
+}
