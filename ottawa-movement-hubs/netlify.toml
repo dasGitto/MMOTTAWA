@@ -1,0 +1,18 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NEXT_PRIVATE_STANDALONE = "true"
+
+# Netlify's Next.js Advanced Middleware & Global Edge capability
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Budget Manager: Cache the Next.js build cache to drastically protect build minutes on Free Tier
+[[plugins]]
+  package = "netlify-plugin-cache"
+    [plugins.inputs]
+    paths = [
+      ".next/cache"
+    ]

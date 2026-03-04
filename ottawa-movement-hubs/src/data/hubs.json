@@ -1,0 +1,92 @@
+[
+    {
+        "id": "lansdowne-glebe-dows",
+        "name": "The Glebe, Lansdowne & Dow's",
+        "type": "Sports, Events & Waterfront Loop",
+        "category": "Outdoor Adventure",
+        "description": "A massive consolidated hub spanning TD Place stadium, the Rideau Canal, Ottawa South, and Dow's Lake. The epicenter for skating, padding, running the pathways, and stadium sports.",
+        "lat": 45.3980,
+        "lng": -75.6980,
+        "zoom": 14
+    },
+    {
+        "id": "westboro-village",
+        "name": "Westboro Village",
+        "type": "Wellness & Outdoor Adventure",
+        "category": "Studio Fitness",
+        "description": "The hub for boutique fitness studios, Kichesippi beach access, and the SJAM winter trail. High concentration of yoga and cycle studios.",
+        "lat": 45.3950,
+        "lng": -75.7530,
+        "zoom": 15
+    },
+    {
+        "id": "hintonburg-wellington",
+        "name": "Hintonburg / Wellington West",
+        "type": "Arts & Eclectic Movement",
+        "category": "Studio Fitness",
+        "description": "A mix of dance studios, martial arts dojos, and community park hubs. Very walkable with a strong 'local' fitness scene.",
+        "lat": 45.4010,
+        "lng": -75.7280,
+        "zoom": 15
+    },
+    {
+        "id": "byward-lowertown",
+        "name": "ByWard Market / Lowertown",
+        "type": "Urban Culture & History",
+        "category": "Outdoor Adventure",
+        "description": "The heart of the city. Includes Major's Hill Park and proximity to the Global Affairs courts. High energy and very tourist-friendly.",
+        "lat": 45.4270,
+        "lng": -75.6920,
+        "zoom": 15
+    },
+    {
+        "id": "kanata-centrum",
+        "name": "Kanata Centrum / North",
+        "type": "Tech-Sport Synergy",
+        "category": "Outdoor Adventure",
+        "description": "Major recreation complexes and the South March Highlands for mountain biking/hiking. The primary hub for the West End.",
+        "lat": 45.3102,
+        "lng": -75.9085,
+        "zoom": 14
+    },
+    {
+        "id": "barrhaven-central",
+        "name": "Barrhaven Central",
+        "type": "Suburban Multi-Sport",
+        "category": "Team Sports",
+        "description": "Massive community centres (Minto) and a high density of neighborhood parks designed for soccer and tennis.",
+        "lat": 45.2715,
+        "lng": -75.7482,
+        "zoom": 14
+    },
+    {
+        "id": "orleans-shenkman",
+        "name": "Orléans (Shenkman/Petrie)",
+        "type": "Bilingual Arts & Beach",
+        "category": "Outdoor Adventure",
+        "description": "Cultural core at Shenkman Arts Centre combined with Petrie Island for volleyball and waterfront trails.",
+        "lat": 45.4710,
+        "lng": -75.4855,
+        "zoom": 14
+    },
+    {
+        "id": "st-laurent-vanier",
+        "name": "St. Laurent / Vanier",
+        "type": "Community Strength",
+        "category": "Team Sports",
+        "description": "Includes the Rideau Community Hub and Richelieu Park. A key area for accessible, grassroots sports and community programs.",
+        "lat": 45.4350,
+        "lng": -75.6600,
+        "zoom": 14
+    },
+    {
+        "id": "billings-ra-centre",
+        "name": "RA Centre / Riverside",
+        "type": "Legacy Sports Hub",
+        "category": "Team Sports",
+        "description": "The RA Centre is Ottawa's largest private multi-sport facility. A massive destination for everything from archery to squash.",
+        "lat": 45.3850,
+        "lng": -75.6850,
+        "zoom": 15
+    }
+]

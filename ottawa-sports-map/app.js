@@ -237,11 +237,10 @@ const fetchData = async () => {
     }
 };
 
-const fetchLocalGyms = async () => {
+const fetchLocalGyms = () => {
     try {
-        const response = await fetch('./data/outdoor_gyms.json');
-        if (!response.ok) return;
-        const data = await response.json();
+        const data = outdoorGymsData;
+        if (!data || !Array.isArray(data)) return;
 
         data.forEach(gym => {
             const type = 'gym';
