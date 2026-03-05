@@ -22,6 +22,55 @@
         "zoom": 15
     },
     {
+        "id": "hintonburg-cc",
+        "name": "Hintonburg Community Centre",
+        "type": "Urban Neighborhood Hub",
+        "category": "Team Sports",
+        "description": "A high-activity, high-density neighborhood center with specialized sports like Floorball and Ballroom Dance.",
+        "lat": 45.4025,
+        "lng": -75.7230,
+        "zoom": 15,
+        "catalog": {
+            "Indoor Sports": [
+                "Floorball (High-intensity leagues)",
+                "Basketball (Open Gym & Leagues)",
+                "Volleyball",
+                "Badminton",
+                "Pickleball"
+            ],
+            "Dance & Rhythm": [
+                "Ballroom & Latin Dance (Arthur Murray Partnership)",
+                "Zumba (Gold & Regular)",
+                "Line Dancing",
+                "Hip-Hop (Youth)"
+            ],
+            "Wellness & Flow": [
+                "Hatha Yoga",
+                "Vinyasa Flow",
+                "Tai Chi",
+                "Gentle Fit (Seniors)",
+                "Meditation Circles"
+            ],
+            "Fitness Centre": [
+                "Weight Room",
+                "Cardio Suite",
+                "Circuit Training",
+                "Personal Training consults"
+            ],
+            "Community & Social": [
+                "Pottery Studio",
+                "Woodworking (Specialized Shop)",
+                "After-school programs",
+                "Seniors' Social Bridge"
+            ],
+            "Outdoor (Adjacent)": [
+                "Parkdale Market access",
+                "outdoor rink (winter)",
+                "community gardens"
+            ]
+        }
+    },
+    {
         "id": "hintonburg-wellington",
         "name": "Hintonburg / Wellington West",
         "type": "Arts & Eclectic Movement",
