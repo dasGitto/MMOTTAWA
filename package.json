@@ -11,6 +11,7 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.98.0",
     "@turf/turf": "^7.3.4",
+    "framer-motion": "^12.35.0",
     "lucide-react": "^0.575.0",
     "maplibre-gl": "^5.19.0",
     "next": "16.1.6",
@@ -20,6 +21,7 @@
     "swr": "^2.4.1"
   },
   "devDependencies": {
+    "@netlify/functions": "^5.1.2",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -27,6 +29,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "osmtogeojson": "^3.0.0-beta.5",
+    "playwright": "^1.58.2",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

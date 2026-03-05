@@ -9,6 +9,12 @@ interface SidebarProps {
     onHubSelect: (hub: any) => void;
     filterCategory: string;
     setFilterCategory: (category: string) => void;
+    showParks: boolean;
+    setShowParks: (val: boolean) => void;
+    showFacilities: boolean;
+    setShowFacilities: (val: boolean) => void;
+    showDanceEvents: boolean;
+    setShowDanceEvents: (val: boolean) => void;
     onReset: () => void;
 }
 
@@ -20,7 +26,7 @@ const CATEGORIES = [
     { name: 'Live Event', icon: <Calendar size={16} /> }
 ];
 
-export default function Sidebar({ hubs, activeHub, onHubSelect, filterCategory, setFilterCategory, onReset }: SidebarProps) {
+export default function Sidebar({ hubs, activeHub, onHubSelect, filterCategory, setFilterCategory, showParks, setShowParks, showFacilities, setShowFacilities, showDanceEvents, setShowDanceEvents, onReset }: SidebarProps) {
 
     const getCategoryColor = (cat: string) => {
         switch (cat) {
@@ -68,6 +74,59 @@ export default function Sidebar({ hubs, activeHub, onHubSelect, filterCategory, 
                         </button>
                     ))}
                 </div>
+            </div>
+
+            {/* Local Layers Toggle */}
+            <div className={`flex flex-col gap-3 transition-all duration-300 overflow-hidden ${!activeHub ? 'max-h-[300px] opacity-100' : 'max-h-0 opacity-0 hidden'}`}>
+                <h2 className="text-sm font-semibold text-neutral-300 uppercase tracking-wider mb-2 mt-4">Local Data Layers</h2>
+
+                <button
+                    onClick={() => setShowParks(!showParks)}
+                    className={`flex items-center justify-between p-3 rounded-xl transition-all duration-300 border w-full text-left
+                        ${showParks
+                            ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
+                            : 'bg-black/20 text-neutral-400 border-white/5 hover:bg-white/5'}`}
+                >
+                    <div className="flex items-center gap-3">
+                        <Leaf size={16} />
+                        <span className="font-semibold text-sm">Show Parks</span>
+                    </div>
+                    <div className={`w-8 h-4 rounded-full transition-colors ${showParks ? 'bg-emerald-500' : 'bg-neutral-600'} relative`}>
+                        <div className={`w-3 h-3 rounded-full bg-white absolute top-0.5 transition-transform ${showParks ? 'translate-x-4.5' : 'translate-x-0.5'}`} />
+                    </div>
+                </button>
+
+                <button
+                    onClick={() => setShowFacilities(!showFacilities)}
+                    className={`flex items-center justify-between p-3 rounded-xl transition-all duration-300 border w-full text-left
+                        ${showFacilities
+                            ? 'bg-blue-500/20 text-blue-300 border-blue-500/40'
+                            : 'bg-black/20 text-neutral-400 border-white/5 hover:bg-white/5'}`}
+                >
+                    <div className="flex items-center gap-3">
+                        <MapPin size={16} />
+                        <span className="font-semibold text-sm">Show Facilities</span>
+                    </div>
+                    <div className={`w-8 h-4 rounded-full transition-colors ${showFacilities ? 'bg-blue-500' : 'bg-neutral-600'} relative`}>
+                        <div className={`w-3 h-3 rounded-full bg-white absolute top-0.5 transition-transform ${showFacilities ? 'translate-x-4.5' : 'translate-x-0.5'}`} />
+                    </div>
+                </button>
+
+                <button
+                    onClick={() => setShowDanceEvents(!showDanceEvents)}
+                    className={`flex items-center justify-between p-3 rounded-xl transition-all duration-300 border w-full text-left
+                        ${showDanceEvents
+                            ? 'bg-rose-500/20 text-rose-300 border-rose-500/40'
+                            : 'bg-black/20 text-neutral-400 border-white/5 hover:bg-white/5'}`}
+                >
+                    <div className="flex items-center gap-3">
+                        <Activity size={16} />
+                        <span className="font-semibold text-sm">Show Movement Pulse</span>
+                    </div>
+                    <div className={`w-8 h-4 rounded-full transition-colors ${showDanceEvents ? 'bg-rose-500' : 'bg-neutral-600'} relative`}>
+                        <div className={`w-3 h-3 rounded-full bg-white absolute top-0.5 transition-transform ${showDanceEvents ? 'translate-x-4.5' : 'translate-x-0.5'}`} />
+                    </div>
+                </button>
             </div>
 
             {/* Selected Hub Profile Card (Excluded for special modal hubs) */}

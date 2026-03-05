@@ -17,5 +17,11 @@ export async function GET() {
 
     if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
-    return NextResponse.json(meetups || []);
+    const formattedMeetups = (meetups || []).map((m: any) => ({
+        ...m,
+        imageUrl: m.imageUrl || null,
+        imageAttribution: m.imageAttribution || null
+    }));
+
+    return NextResponse.json(formattedMeetups);
 }

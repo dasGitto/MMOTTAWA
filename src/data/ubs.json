@@ -1,0 +1,36 @@
+[
+  {
+    "id": "ra-centre",
+    "name": "RA Centre",
+    "type": "Private Multi-Sport Hub",
+    "category": "Wellness",
+    "lat": 45.3976,
+    "lng": -75.6841,
+    "description": "Ottawa's largest private recreation complex, featuring specialized clubs and professional-grade leagues.",
+    "heroImage": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1000",
+    "catalog": {
+      "Court Sports": ["Badminton", "Squash", "Pickleball", "Table Tennis", "Racquetball"],
+      "Specialized Clubs": ["Archery (Indoor Range)", "Judo (Olympic Dojo)", "Curling Centre", "Fencing", "Canoe Camping"],
+      "Fitness & Wellness": ["Kickboxing", "Zumba", "Yoga", "Pilates", "SpinFIT", "MuscleFIT", "Taiji"],
+      "Field & Leagues": ["Slo-Pitch (Masters & Co-ed)", "Soccer 7s", "Beach Volleyball", "Rugby", "Lawn Bowling"],
+      "Youth & Junior": ["Junior Basketball", "Soccer", "Baseball", "Hip-Hop Dance", "Summer Camps"]
+    }
+  },
+  {
+    "id": "nepean-sportsplex",
+    "name": "Nepean Sportsplex",
+    "type": "Regional City Hub",
+    "category": "Team Sports",
+    "lat": 45.3340,
+    "lng": -75.7280,
+    "description": "A massive municipal facility serving as a headquarters for competitive swimming, hockey, and curling.",
+    "heroImage": "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=1000",
+    "catalog": {
+      "Aquatics": ["50m Olympic Pool", "Diving Towers", "Whirlpool", "Aquafit", "Therapeutic Swim"],
+      "Rink Sports": ["3 NHL Rinks", "Public Skating", "Pick-up Hockey", "10-Sheet Curling Centre", "Figure Skating"],
+      "Indoor Sports": ["Basketball", "Volleyball", "Badminton", "Short Mat Bowling", "Squash"],
+      "Outdoor": ["Minto Turf Field (Football)", "Soccer", "Baseball Diamonds", "Lawn Bowling", "Fitness Trails"],
+      "Seniors (50+)": ["Bridge", "Mah Jong", "Shuffleboard", "Walking Club"]
+    }
+  }
+]

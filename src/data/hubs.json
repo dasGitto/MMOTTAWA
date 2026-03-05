@@ -7,7 +7,9 @@
         "description": "A massive consolidated hub spanning TD Place stadium, the Rideau Canal, Ottawa South, and Dow's Lake. The epicenter for skating, padding, running the pathways, and stadium sports.",
         "lat": 45.3980,
         "lng": -75.6980,
-        "zoom": 14
+        "zoom": 14,
+        "imageUrl": "/images/td_place.png",
+        "imageAttribution": "Photo by Chensiyuan via Wikimedia Commons (CC BY-SA 4.0)"
     },
     {
         "id": "westboro-village",
@@ -87,6 +89,81 @@
         "description": "The RA Centre is Ottawa's largest private multi-sport facility. A massive destination for everything from archery to squash.",
         "lat": 45.3850,
         "lng": -75.6850,
-        "zoom": 15
+        "zoom": 15,
+        "imageUrl": "/images/ra_centre.png",
+        "imageAttribution": "Photo by Ottawa Citizen via Wikimedia Commons (CC BY-SA 3.0)",
+        "catalog": {
+            "Court Sports": [
+                "Badminton (Social & Competitive)",
+                "Pickleball (Indoor/Outdoor)",
+                "Squash (Box Leagues)",
+                "Table Tennis",
+                "Racquetball"
+            ],
+            "Field & Leagues": [
+                "Soccer 7s (Women's, Men's OT35, Co-ed)",
+                "Slo-Pitch (New Masters Mixed 45+, Friday Night Co-ed)",
+                "Slo-Pitch (Co-ed & Fastball)",
+                "Rugby",
+                "Football",
+                "Ultimate Frisbee",
+                "Beach Volleyball (Sand Courts)",
+                "Lawn Bowling"
+            ],
+            "Specialized Clubs": [
+                "Archery (Longest indoor range in Ottawa)",
+                "Judo (Olympic Dojo)",
+                "Curling (6-sheet professional rink)",
+                "Canoe Camping (Paddle Canada Certifications)",
+                "Birdie House Indoor Golf (New 2026 Partnership)",
+                "Fencing",
+                "Gun Club"
+            ],
+            "Fitness & Wellness": [
+                "Kickboxing (New 2026)",
+                "Baby & Me Yoga (New 2026)",
+                "Zumba (New 2026)",
+                "Yoga (Hatha, Yin, Flow, Mobility, Wise Body)",
+                "Pilates",
+                "Taiji (Wu Style)",
+                "SpinFIT",
+                "MuscleFIT",
+                "SportFIT",
+                "FusionFIT",
+                "Perform+",
+                "Stand Tall (Mobility)"
+            ],
+            "Youth & Junior": [
+                "Junior Athletes Run Club (New 2026)",
+                "Basketball (Ages 9-15)",
+                "Soccer (Ages 6-8)",
+                "Hip-Hop Dance",
+                "Summer Camps (Junior Day, Sport, Special Interest)",
+                "CIT/LIT Leadership Training"
+            ],
+            "Aquatics (Summer)": [
+                "Outdoor Pool",
+                "AquaFIT",
+                "Low Ratio Swimming Lessons",
+                "Adaptive Swimming",
+                "Private Lessons"
+            ],
+            "Social & Hobby": [
+                "Duplicate Bridge",
+                "Chess Club",
+                "Photography Club",
+                "Model Railroading",
+                "Euchre",
+                "RACCC Winter Seminars"
+            ],
+            "Facilities": [
+                "The Fieldhouse (Licensed Bar)",
+                "Prep Kitchen (On-site restaurant)",
+                "LifeFIT Fitness Centre",
+                "Accessible Dojo",
+                "East/West Wings",
+                "Free Parking"
+            ]
+        }
     }
 ]

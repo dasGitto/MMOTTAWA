@@ -7,7 +7,7 @@ export async function fetchNeighborhoodAmenities(bbox: number[]) {
     const [minLon, minLat, maxLon, maxLat] = bbox;
     const bboxString = `${minLat},${minLon},${maxLat},${maxLon}`;
 
-    // Query for parks, basketball, tennis, and gyms
+    // Query for parks, basketball, tennis, and new granular fitness nodes
     const query = `
     [out:json][timeout:25];
     (
@@ -16,6 +16,11 @@ export async function fetchNeighborhoodAmenities(bbox: number[]) {
       nwr["leisure"="fitness_station"](${bboxString});
       nwr["sport"="basketball"](${bboxString});
       nwr["sport"="tennis"](${bboxString});
+      nwr["amenity"="community_centre"](${bboxString});
+      nwr["leisure"="dance"](${bboxString});
+      nwr["sport"="martial_arts"](${bboxString});
+      nwr["sport"="yoga"](${bboxString});
+      nwr["sport"="crossfit"](${bboxString});
     );
     out body;
     >;
@@ -45,8 +50,13 @@ export async function fetchNeighborhoodAmenities(bbox: number[]) {
 
         if (props.sport === 'basketball') category = 'Basketball';
         else if (props.sport === 'tennis') category = 'Tennis';
+        else if (props.leisure === 'dance' || props.sport === 'dance') category = 'Dance';
+        else if (props.sport === 'martial_arts') category = 'Martial Arts';
+        else if (props.sport === 'yoga') category = 'Yoga';
+        else if (props.sport === 'crossfit' || (props.sport === 'fitness' && props.name?.toLowerCase().includes('crossfit'))) category = 'Crossfit';
         else if (props.leisure === 'fitness_centre' || props.leisure === 'fitness_station') category = 'Gym / Fitness';
         else if (props.leisure === 'park') category = 'Park';
+        else if (props.amenity === 'community_centre') category = 'Community Centre';
 
         if (category === 'Unknown') return acc;
 
@@ -64,7 +74,9 @@ export async function fetchNeighborhoodAmenities(bbox: number[]) {
         pointFeature.properties = {
             id: f.id,
             name: props.name || `${category} (Unnamed)`,
-            category
+            category,
+            website: props.website || props['contact:website'] || null,
+            sport: props.sport || null
         };
 
         acc.push(pointFeature);
