@@ -232,7 +232,7 @@ export default function OttawaMap() {
                                     'BARRHAVEN - OLD BARRHAVEN', '#f43f5e', // Rose
                                     'ORLEANS VILLAGE - CHATEAUNEUF', '#0ea5e9', // Sky
                                     'VANIER SOUTH', '#84cc16', // Lime
-                                    'RIVERSIDE PARK', '#06b6d4', // Cyan
+                                    'BILLINGS BRIDGE - HERON PARK', '#06b6d4', // Cyan
                                     'ROCKCLIFFE', '#fbbf24', // Gold
                                     '#10b981' // Default Emerald
                                 ],
@@ -254,7 +254,7 @@ export default function OttawaMap() {
                                     'BARRHAVEN - OLD BARRHAVEN', '#f43f5e', // Rose
                                     'ORLEANS VILLAGE - CHATEAUNEUF', '#0ea5e9', // Sky
                                     'VANIER SOUTH', '#84cc16', // Lime
-                                    'RIVERSIDE PARK', '#06b6d4', // Cyan
+                                    'BILLINGS BRIDGE - HERON PARK', '#06b6d4', // Cyan
                                     'ROCKCLIFFE', '#fbbf24', // Gold
                                     '#10b981' // Default Emerald
                                 ],
@@ -308,6 +308,24 @@ export default function OttawaMap() {
                             ],
                             'circle-stroke-width': 2,
                             'circle-stroke-color': '#ffffff'
+                        }}
+                    />
+                    <Layer
+                        id="hub-labels"
+                        type="symbol"
+                        filter={['has', 'name']}
+                        layout={{
+                            'text-field': ['get', 'name'],
+                            'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
+                            'text-size': 12,
+                            'text-offset': [0, 1.3],
+                            'text-anchor': 'top',
+                            'symbol-sort-key': 5
+                        }}
+                        paint={{
+                            'text-color': '#ffffff',
+                            'text-halo-color': 'rgba(0, 0, 0, 0.8)',
+                            'text-halo-width': 2
                         }}
                     />
                 </Source>
