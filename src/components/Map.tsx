@@ -10,7 +10,11 @@ import Sidebar from './Sidebar';
 import HubModal from './HubModal';
 import RAHubModal from './RAHubModal';
 
-export default function OttawaMap() {
+interface MapProps {
+    initialHubId?: string;
+}
+
+export default function OttawaMap({ initialHubId }: MapProps) {
     const mapRef = useRef<any>(null);
     const [activeHub, setActiveHub] = useState<any | null>(null);
     const [filterCategory, setFilterCategory] = useState<string>('All');
@@ -107,6 +111,17 @@ export default function OttawaMap() {
         });
     };
 
+    useEffect(() => {
+        if (initialHubId && mapRef.current) {
+            const hub = hubsData.find((h: any) => h.id === initialHubId);
+            if (hub) {
+                // Fly to the hub after a short delay to ensure map has mounted
+                setTimeout(() => {
+                    onHubClick(hub);
+                }, 500);
+            }
+        }
+    }, [initialHubId, mapRef.current]);
 
     return (
         <div className="w-full h-screen relative flex">

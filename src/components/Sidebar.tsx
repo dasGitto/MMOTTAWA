@@ -26,6 +26,19 @@ const CATEGORIES = [
     { name: 'Live Event', icon: <Calendar size={16} /> }
 ];
 
+const TEAM_SPORTS = [
+    { name: 'Soccer', icon: '⚽' },
+    { name: 'Basketball', icon: '🏀' },
+    { name: 'Volleyball', icon: '🏐' },
+    { name: 'Badminton', icon: '🏸' },
+    { name: 'Tennis', icon: '🎾' },
+    { name: 'Pickleball', icon: '🏓' },
+    { name: 'Hockey/Floorball', icon: '🏒' },
+    { name: 'Rugby/Football', icon: '🏈' },
+    { name: 'Ultimate Frisbee', icon: '🥏' },
+    { name: 'Baseball/Softball', icon: '⚾' }
+];
+
 export default function Sidebar({ hubs, activeHub, onHubSelect, filterCategory, setFilterCategory, showParks, setShowParks, showFacilities, setShowFacilities, showDanceEvents, setShowDanceEvents, onReset }: SidebarProps) {
 
     const getCategoryColor = (cat: string) => {
@@ -54,24 +67,40 @@ export default function Sidebar({ hubs, activeHub, onHubSelect, filterCategory, 
                 <h2 className="text-sm font-semibold text-neutral-300 uppercase tracking-wider mb-2">Explore Activities</h2>
                 <div className="flex flex-col gap-3">
                     {CATEGORIES.map(cat => (
-                        <button
-                            key={cat.name}
-                            onClick={() => {
-                                setFilterCategory(cat.name);
-                                onReset(); // Ensures the map flyTo default position when a category is clicked
-                            }}
-                            className={`flex items-center gap-4 p-4 rounded-xl transition-all duration-300 border w-full text-left group
-                ${filterCategory === cat.name
-                                    ? 'bg-white/10 text-white border-white/30 shadow-[0_0_15px_rgba(255,255,255,0.1)]'
-                                    : 'bg-black/20 text-neutral-400 border-white/5 hover:bg-white/5 hover:text-neutral-200'
-                                }
-              `}
-                        >
-                            <div className={`p-2.5 rounded-lg flex items-center justify-center transition-colors ${filterCategory === cat.name ? getCategoryColor(cat.name) : 'bg-white/5 text-neutral-500 group-hover:text-neutral-300'}`}>
-                                {cat.icon}
-                            </div>
-                            <span className="font-semibold text-[15px]">{cat.name}</span>
-                        </button>
+                        <div key={cat.name} className="flex flex-col gap-2">
+                            <button
+                                onClick={() => {
+                                    setFilterCategory(cat.name);
+                                    onReset(); // Ensures the map flyTo default position when a category is clicked
+                                }}
+                                className={`flex items-center gap-4 p-4 rounded-xl transition-all duration-300 border w-full text-left group
+                    ${filterCategory === cat.name
+                                        ? 'bg-white/10 text-white border-white/30 shadow-[0_0_15px_rgba(255,255,255,0.1)]'
+                                        : 'bg-black/20 text-neutral-400 border-white/5 hover:bg-white/5 hover:text-neutral-200'
+                                    }
+                  `}
+                            >
+                                <div className={`p-2.5 rounded-lg flex items-center justify-center transition-colors ${filterCategory === cat.name ? getCategoryColor(cat.name) : 'bg-white/5 text-neutral-500 group-hover:text-neutral-300'}`}>
+                                    {cat.icon}
+                                </div>
+                                <span className="font-semibold text-[15px]">{cat.name}</span>
+                            </button>
+
+                            {/* Team Sports Expanded View */}
+                            {cat.name === 'Team Sports' && filterCategory === 'Team Sports' && (
+                                <div className="grid grid-cols-2 gap-2 mt-1 px-1 animate-in slide-in-from-top-2 fade-in duration-300 ease-out">
+                                    {TEAM_SPORTS.map(sport => (
+                                        <button 
+                                            key={sport.name}
+                                            className="flex flex-col items-center justify-center p-3 rounded-xl border border-white/10 bg-black/40 hover:bg-orange-500/20 hover:border-orange-500/40 text-neutral-300 hover:text-white transition-all duration-300 group"
+                                        >
+                                            <span className="text-2xl mb-1 group-hover:scale-110 transition-transform">{sport.icon}</span>
+                                            <span className="text-[11px] font-medium text-center">{sport.name}</span>
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
                     ))}
                 </div>
             </div>
